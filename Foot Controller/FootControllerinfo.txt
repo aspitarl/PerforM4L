@@ -1,0 +1,46 @@
+
+--1-10 main--
+1-3: Select scene 
+4: Unarm all tracks
+5: Arm selected track
+6: Stop Armed track
+7: Disable Clips armed track
+8: Disable notes armed track
+9: Reenable automation
+10: Disable auto scene select
+
+--11-20 Presets--
+10-18: Presets (2x to recall)
+19: Reset track ids
+20: Save preset
+
+
+
+--21-30 Chord Player--
+31: Bypass
+32: Flush
+33: Legato
+34: Midilearn
+35: KeyLearn
+36: Learn
+37: Clear
+38: Clearall
+
+--31-40 Pedal Mapping--
+Bottom is map top unmap
+1: Foot controller 1
+2: Foot controller 2
+
+--41-50 Glove Mapping--
+41:serial on
+42:serial off
+Bottom is map top unmap
+3: Camera x
+4: Camera y
+5: Camera z
+
+--91-100 Track Select--
+90-96: Controller Tracks
+99:1st track
+100:armed tracks
+

@@ -1,0 +1,348 @@
+void NU_verse_split(uint16_t basecolor, uint16_t LFO, float bright, uint16_t whiteloc) 
+{
+  
+    uint32_t color = Wheelwhitebright((basecolor+LFO) & 255, bright, 0 );
+    uint32_t bars = Wheel(15 + whiteloc/20);
+
+    whiteloc = (uint16_t)((((float)whiteloc)/255)   *stripseg);
+ 
+    uint16_t i ;
+    uint16_t j ;
+    uint16_t loc ;
+
+
+  for( j=0; j<numstrips; j++){
+    for( i=0; i<stripNarr[j]; i++) {
+       loc = striplocarr[j]+stripNarr[j] - i-1;
+          if(stripsel_1[j] == 1 )
+          {
+
+            if(i < whiteloc ){
+             strip.setPixelColor(loc, bars);
+            }
+            else
+            {
+              strip.setPixelColor(loc, 0);
+            }
+          }
+          else{
+           strip.setPixelColor(loc, color);
+          } 
+    } 
+  }
+
+    strip.show();
+}
+
+
+
+
+void NU_hits(uint16_t basecolor, int midi, float bright, float whiteamnt) 
+{
+  uint16_t i ; 
+  uint16_t j ; 
+  uint16_t loc ; 
+  uint32_t color = Wheelwhitebright((basecolor) & 255, bright,  whiteamnt );
+
+ for( i = 0 ; i<= numstrips; i++){
+    if ( midi == 0){
+    stripsel[i]  = stripsel_1[i];
+    }
+    else if (midi == 1){
+    stripsel[i]  = stripsel_2[i];
+    }
+    else if (midi == 2){
+    stripsel[i]  = stripsel_3[i];
+    }
+ }
+
+  
+    
+  for( j=0; j<numstrips; j++){
+    for( i=0; i < stripNarr[j] ; i++) {
+      loc = striplocarr[j]+i;
+
+        if( stripsel[j] == 1)
+        {
+        strip.setPixelColor(loc, color); 
+        }
+        else 
+        {
+        strip.setPixelColor(loc, 0);     
+        }
+    } 
+  }
+    strip.show();
+} 
+
+
+                case 13:
+                    presetname = "LS_intro";
+                    advancerain();
+                    LS_intro(Colorin, LFOfloat, EnvFollow2, EnvFollow1 ,midi,  rainposarray);  
+                    break;
+                case 14:
+                    presetname = "LS_intro_2";
+                    advancerain();
+                    LS_intro_2(Colorin, LFOfloat, EnvFollow2, General ,midi,  rainposarray);    
+                    break;
+
+
+
+
+//This is essentially the same as rain
+void LS_intro(uint16_t basecolor, float LFOfloat, float bright, float whiteamnt, int rainposarray[]) 
+{
+ uint16_t i ;
+ uint16_t j ;
+ uint16_t loc ;
+
+ uint32_t color;
+ //float lfoscale = (LFO-130)/100;
+ int newbasecolor = basecolor;
+
+  for( j=0; j<=numstrips; j++){
+    newbasecolor =basecolor + 25*cos(LFOfloat*pi + (j/15.0)*2*pi);
+    color = Wheelwhitebright(newbasecolor & 255, bright,  whiteamnt );
+    for( i=0; i < stripNarr[j] ; i++) {
+          loc = striplocarr[j]+stripNarr[j] - i-1;
+          if(i == (rainposarray[j]%stripNarr[j])){
+           strip.setPixelColor(loc, 64,64,64,0);
+          }
+          else{
+            strip.setPixelColor(loc, color); 
+          } 
+    } 
+  }
+    strip.show();
+}
+
+                case 15:
+                    presetname = "LS_intro_split";
+                    advancerain();
+                    LS_intro_split(Colorin , LFO, EnvFollow2, EnvFollow1, General,midi,  rainposarray);  
+                    break;
+
+
+void LS_intro_split(uint16_t basecolor, uint16_t LFO, float bright_outer, float bright_inner, float whiteamnt,int stripnum, int rainposarray[]) 
+{
+ uint16_t i ;
+ uint16_t j ;
+ uint16_t loc ;
+
+ uint32_t color_outer = Wheelwhitebright((basecolor+LFO) & 255, 255- bright_outer,  whiteamnt );
+uint32_t color_inner = Wheelwhitebright((basecolor +LFO -100) & 255, bright_inner,  whiteamnt );
+
+  for( j=0; j<numstrips; j++){
+    for( i=0; i<stripNarr[j]; i++) {
+       loc = striplocarr[j]+stripNarr[j] - i-1;
+        
+             
+              
+                  if(stripsel_2[j] == 1)
+                  {
+                      strip.setPixelColor(loc, color_inner);          
+                  }
+                  else
+                  {
+                        if(i == (rainposarray[j]%stripNarr[j]))
+                        {
+                          strip.setPixelColor(loc, 64,64,64,0);
+                         }
+                        else
+                        {
+                            strip.setPixelColor(loc, color_outer);
+                        }
+                  } 
+              
+    } 
+  }
+
+    strip.show();
+} 
+
+
+
+                case 16:
+                    presetname = "LS_intro_perform";
+                    advancerain();
+                    LS_intro_perform(Colorin , LFO, EnvFollow2, EnvFollow1, General,midi,  rainposarray); 
+                    break;
+
+
+
+
+void LS_intro_perform(uint16_t basecolor, uint16_t LFO, float bright_outer, float bright_inner, float whiteamnt,int stripnum, int rainposarray[]) 
+{
+ uint16_t i ;
+ uint16_t j ;
+ uint16_t loc ;
+
+float whiteamnt_base = pow((whiteamnt)/255.0,4)*255;
+float whiteamnt_rain = pow((255.0- whiteamnt)/255.0,4)*255;
+
+ uint32_t color_outer = Wheelwhitebright((basecolor+LFO) & 255, 255- bright_outer,  whiteamnt_base );
+uint32_t color_inner = Wheelwhitebright((basecolor +LFO -100) & 255, bright_inner,  whiteamnt_base );
+uint32_t color_rain = Wheelwhitebright((basecolor+LFO-100)%255, 255, whiteamnt_rain );
+
+  for( j=0; j<numstrips; j++){
+    for( i=0; i<stripNarr[j]; i++) {
+       loc = striplocarr[j]+stripNarr[j] - i-1;
+        
+             
+              
+                  if(stripsel_2[j] == 1)
+                  {
+                      strip.setPixelColor(loc, color_inner);          
+                  }
+                  else
+                  {
+                        if(i == (rainposarray[j]%stripNarr[j]) || i == ((rainposarray[j]%stripNarr[j])+1) || i == ((rainposarray[j]%stripNarr[j])-1))
+                        {
+                          strip.setPixelColor(loc, color_rain);
+                         }
+                        else
+                        {
+                            strip.setPixelColor(loc, color_outer);
+                        }
+                  } 
+              
+    } 
+  }
+
+
+
+    strip.show();
+}
+
+
+
+                case 17:
+                    presetname = "LS_break";
+                    LS_break(Colorin,EnvFollow1, EnvFollow2, General,midi);
+                    break;
+
+
+
+void LS_break(uint16_t basecolor, float bright_strip, float bright_other, float whiteamnt, int stripnum) 
+{
+  uint16_t i ;
+ uint16_t j ;
+ uint16_t loc ;
+
+ uint32_t color_strip = Wheelwhitebright((basecolor+LFO+100) & 255, bright_strip,  whiteamnt );
+  uint32_t color_other = Wheelwhitebright((basecolor+LFO) & 255, bright_other,  whiteamnt );
+
+  for( j=0; j<numstrips; j++){
+    for( i=0; i<stripNarr[j]; i++) {
+       loc = striplocarr[j]+stripNarr[j] - i-1;
+        
+            
+                        if(j == stripnum)
+                        {
+                          strip.setPixelColor(loc, color_strip);
+                         }
+                        else
+                        {
+                            strip.setPixelColor(loc, color_other);
+                        }
+                   
+              
+    } 
+  }
+    strip.show();
+
+}
+
+
+                case 18:
+                    presetname = "LS_drop";
+                    LS_drop(Colorin, LFO, EnvFollow1, EnvFollow2, General );
+                    break;
+
+
+
+void LS_drop(uint16_t basecolor, uint16_t LFO, float bright, uint16_t whiteloc, float whiteamnt) 
+{
+  
+    uint32_t color = Wheelwhitebright((basecolor+LFO) & 255, bright, whiteamnt );
+    uint32_t bars = Wheelwhitebright(15 + whiteloc/10,255,whiteamnt);
+
+    whiteloc = (uint16_t)((((float)whiteloc)/255)   *stripseg);
+ 
+    uint16_t i ;
+    uint16_t j ;
+    uint16_t loc ;
+
+
+  for( j=0; j<numstrips; j++){
+    for( i=0; i<stripNarr[j]; i++) {
+       loc = striplocarr[j] + i;
+          if(stripsel_2[j] == 1 )
+          {
+
+            if(i < whiteloc ){
+             strip.setPixelColor(loc, bars);
+            }
+            else
+            {
+              strip.setPixelColor(loc, 0);
+            }
+          }
+          else{
+           strip.setPixelColor(loc, color);
+          } 
+    } 
+  }
+
+    strip.show();
+}
+
+
+
+
+                case 19:
+                    presetname = "LS_outro";
+                    advancerain();
+                    LS_outro(Colorin , LFO, EnvFollow2, EnvFollow1, General,midi,  rainposarray);
+                    break;     
+
+
+
+
+
+void LS_outro(uint16_t basecolor, uint16_t LFO, float bright, float bright2, float whiteamnt,int stripnum, int rainposarray[]) 
+{
+ uint16_t i ;
+ uint16_t j ;
+ uint16_t loc ;
+
+ uint32_t color1 = Wheelwhitebright((100+LFO) & 255, bright,  whiteamnt );
+uint32_t color2 = Wheelwhitebright((basecolor+LFO+80) & 255, bright2,  whiteamnt );
+
+  for( j=0; j<numstrips; j++){
+    for( i=0; i<stripNarr[j]; i++) {
+       loc = striplocarr[j]+stripNarr[j] - i-1;
+        
+             
+              
+                  if(stripsel_2[j] == 1)
+                  {
+                      strip.setPixelColor(loc, color2);          
+                  }
+                  else
+                  {
+                        if(i == (rainposarray[j]%stripNarr[j]))
+                        {
+                          strip.setPixelColor(loc, 64,64,64,0);
+                         }
+                        else
+                        {
+                            strip.setPixelColor(loc, color1);
+                        }
+                  } 
+              
+    } 
+  }
+    strip.show();
+}      
