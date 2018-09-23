@@ -1,23 +1,23 @@
 {
 	"pattrstorage" : 	{
-		"name" : "u855016348",
+		"name" : "u424005355",
 		"slots" : 		{
 			"1" : 			{
 				"id" : 1,
 				"data" : 				{
 					"mappath_1" : [ "path", "live_set", "tracks", 6, "devices", 1, "parameters", 2 ],
-					"ArmState_tracks" : [ 2 ],
+					"ArmState_tracks" : [ 6 ],
 					"mappath_2" : [ "path" ],
-					"ArmState_ids" : [ 284 ],
+					"ArmState_ids" : [ 42 ],
 					"mappathid_1" : [ "id", 5514 ],
 					"mappathid_2" : [ 0 ],
 					"mappath_3" : [ "path" ],
 					"mappathid_3" : [ 0 ],
 					"mappath_4" : [ "path", "live_set", "tracks", 6, "devices", 1, "parameters", 1 ],
-					"mappathid_4" : [ 0 ],
+					"mappathid_4" : [ "id", 36 ],
 					"mappath_5" : [ 0 ],
 					"mappathid_5" : [ 0 ],
-					"Fishman_tracks" : [ 10, 1, 2, 0 ]
+					"Fishman_tracks" : [ 2, 0, 10, 1 ]
 				}
 
 			}
@@ -33,11 +33,11 @@
 					"mappathid_2" : [ 0 ],
 					"mappath_3" : [ "path" ],
 					"mappathid_3" : [ 0 ],
-					"mappath_4" : [ "path", "live_set", "tracks", 6, "devices", 1, "parameters", 1 ],
-					"mappathid_4" : [ 0 ],
+					"mappath_4" : [ "path", "live_set", "tracks", 8, "devices", 1, "parameters", 1 ],
+					"mappathid_4" : [ "id", 40 ],
 					"mappath_5" : [ 0 ],
 					"mappathid_5" : [ 0 ],
-					"Fishman_tracks" : [ 10, 1, 2, 0 ]
+					"Fishman_tracks" : [ 2, 0, 10, 1 ]
 				}
 
 			}
