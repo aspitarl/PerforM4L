@@ -4,7 +4,7 @@ A collection of max for live devices that I use. Mostly geared toward jamming/pe
 Include the folder in your max search path (Like PATH, PYTHONPATH, etc. but for max), otherwise common dependencies (Like the mapping suppatcher) will not be found. In max go to Options -> File Preferences 
 
 *Explanation/Instructions*
-Fishman: template gives 6 tracks, one for each string of guitar. The midi is then routed to an instrument with 6 chains, one for each string. This allows for a separate pitchbend for each string of the guitar
+Fishman: template gives 6 tracks, one for each string of guitar. The midi is then routed to an instrument with 6 chains, one for each string. This allows for a separate pitchbend for each string of the guitar. The Fishman needs to be set to to Mono mode, as well as auto pitchbend to stop stepping during bends). 
 Glove: Gets data from a custom glove xy controller comprised of an OpenMV cam and an IR LED and maps to live paramters. Some Arduino code in here to control Neopixels attached to the glove (OpenMV cam communicates directly with arduino). 
 Foot Controller: Device controlled a FCB1010 foot controller and does things with live or sends messages to the other patches.
 Tension: an attempt to add 'tesnion' building elements (risers, claps ,etc.) in real-time. Not fully finished.
