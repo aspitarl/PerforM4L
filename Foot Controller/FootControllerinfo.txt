@@ -14,17 +14,15 @@
 19: Reset track ids
 20: Save preset
 
-
-
 --21-30 Chord Player--
-31: Bypass
-32: Flush
-33: Legato
-34: Midilearn
-35: KeyLearn
-36: Learn
-37: Clear
-38: Clearall
+21: Bypass
+22: Flush
+23: Legato
+24: Midilearn
+25: KeyLearn
+26: Learn
+27: Clear
+28: Clearall
 
 --31-40 Pedal Mapping--
 Bottom is map top unmap
@@ -34,6 +32,7 @@ Bottom is map top unmap
 --41-50 Glove Mapping--
 41:serial on
 42:serial off
+46:Half mode
 Bottom is map top unmap
 3: Camera x
 4: Camera y
