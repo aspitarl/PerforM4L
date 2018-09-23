@@ -23,6 +23,7 @@
 26: Learn
 27: Clear
 28: Clearall
+30:reread chords
 
 --31-40 Pedal Mapping--
 Bottom is map top unmap
