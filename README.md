@@ -1,4 +1,3 @@
-A collection of max for live devices that I use. Mostly geared toward jamming/performance. 
 
 *Installation*
 Include the folder in your max search path (Like PATH, PYTHONPATH, etc. but for max), otherwise common dependencies (Like the mapping suppatcher) will not be found. In max go to Options -> File Preferences 
