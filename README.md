@@ -3,7 +3,7 @@
 
 Include the folder in your max search path (Like PATH, PYTHONPATH, etc. but for max), otherwise common dependencies (Like the mapping suppatcher) will not be found. In max go to Options -> File Preferences. Use ableton to open max to make sure it's the same max installation. 
 
-There are project 'templates' included which are just live sets meant to be dragged and dropped into 
+There are project 'templates' included which are just live sets meant to be dragged and dropped into projects.
 
 ## Components
 
@@ -20,9 +20,10 @@ Patches for use with Fishman Triple Play MIDI to guitar.
 
 Gets data from a custom glove xy controller comprised of an OpenMV cam and an IR LED and maps to live paramters. 
 
-* Some Arduino code in here to control Neopixels attached to the glove (OpenMV cam communicates directly with arduino).
+
 * This can be used with a 'chords' patch that maps chords to notes so that saved chords can be played with a single note. Currently, the best way to load chords is to have a series of midi clips in the adjacent track to the chords device with single chords in each clip. Then press the scrape button (also triggered by foot pedal) to pull those chords in. There is also json saving functionality, not stress tested yet. 
-* Finally, there is a midifilter patch that has a high and low filter to only pass high or low notes. This can be usedto split up the synth into chords and bass by having the bass notes a coupe octaves too low to pass through the filter and then just pitch them up a couple octaves before the instrument.
+* There is a midifilter patch that has a high and low filter to only pass high or low notes. This can be usedto split up the synth into chords and bass by having the bass notes a coupe octaves too low to pass through the filter and then just pitch them up a couple octaves before the instrument.
+* Some Arduino code in here to control Neopixels attached to the glove (OpenMV cam communicates directly with arduino).
 
 #### Foot Controller
 
