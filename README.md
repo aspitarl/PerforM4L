@@ -9,7 +9,7 @@ There are project 'templates' included which are just live sets meant to be drag
 
 ### Fishman
 
-Patches for use with Fishman Triple Play MIDI to guitar.  
+Patches for use with Fishman Triple Play guitar to MIDI.  
 
 * Template gives 6 tracks, one for each string of guitar. The midi is then routed to an instrument with 6 chains, one for each string. This allows for a separate pitchbend for each string of the guitar. The Fishman needs to be set to to Mono mode, as well as auto pitchbend to stop stepping during bends). 
 * In order to change the instrument, delete all the chains in the instrument rack except the first one, replace the instrument in that chain, set the pitchbend to +-12 or use the PB_range patch, and then duplicate the chain 5 times. 
