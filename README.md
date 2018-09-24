@@ -7,7 +7,7 @@ There are project 'templates' included which are just live sets meant to be drag
 
 ## Components
 
-#### Fishman
+### Fishman
 
 Patches for use with Fishman Triple Play MIDI to guitar.  
 
@@ -16,7 +16,7 @@ Patches for use with Fishman Triple Play MIDI to guitar.
 * To record the six clips at once, ableton needs to have the 'start record on scene launch' enabled. 
 * There are also some (untested recently) to do things like to hold a chord. This uses the foot controller to toggle a gate that doesn't pass note on events until another button is pressed on the foot pedal.
 
-#### Glove
+### Glove
 
 Gets data from a custom glove xy controller comprised of an OpenMV cam and an IR LED and maps to live paramters. 
 
@@ -25,26 +25,26 @@ Gets data from a custom glove xy controller comprised of an OpenMV cam and an IR
 * There is a midifilter patch that has a high and low filter to only pass high or low notes. This can be usedto split up the synth into chords and bass by having the bass notes a coupe octaves too low to pass through the filter and then just pitch them up a couple octaves before the instrument.
 * Some Arduino code in here to control Neopixels attached to the glove (OpenMV cam communicates directly with arduino).
 
-#### Foot Controller
+### Foot Controller
 
 Device recieves program chanes from a FCB1010 foot controller and does things with live or sends messages to the other patches. 
 
 * This device also can read and save a json file with the live set 'presets' (FootSettings.json) The preset includes which tracks are armed, which fishman recieve tracks should be activated, and the map paths corresponding to the foot controller pedals and the glove xyz mappers. Each of these has a 'mappath' which is the literal path pointing to the parameter, and the mappathid, which holds the id of the parameter. Once new tracks and such have been added, the paths will get screwed up. Press 'reset tracks' to recalculate the paths based off the mappathids. 
 * Also reads in a text file (FootControllerinfo.txt) that describes what the program changes do. 
 
-#### Timing 
+### Timing 
 
 Some stuff to control tempo and scene triggering when in session view. 
 
-#### Ableton Workflow 
+### Ableton Workflow 
 
 Some stuff to use the live object model to automate tasks. Believe the TramsposeMMC is working, which transposes all clips to change the key of a song, but haven't tested it recently. 
 
-#### Tension
+### Tension
 
 An attempt to add 'tesnion' building elements (risers, claps ,etc.) in real-time. Not fully finished.
 
-#### Visual
+### Visual
 
 Patches to control visual things to music. One patch controls Adafruit Neopixels with serial communicaiton to an Arduino. There are also jitter patches to work with VModule (see below), but I never got these working reliably. Got stuck tring to figure out how to use textures in order to efficiently utilize GPU.
 
