@@ -1,0 +1,122 @@
+{
+  "Row 0": {
+    "1": "Trigger Previous Scene",
+    "2": "Trigger Current Scene",
+    "3": "Trigger Next Scene",
+    "4": "Unarm All Tracks",
+    "5": "Arm Selected Track",
+    "6": "Stop Armed Track",
+    "7": "Disable Clips of Armed Tracks",
+    "8": "Disable Notes of Armed Tracks",
+    "9": "Renable Automation",
+    "10": "Disable Auto Scene Select"
+  },
+  "Row 1": {
+    "1": "Preset 1",
+    "2": "Preset 2",
+    "3": "Preset 3",
+    "4": "Preset 4",
+    "5": "Preset 5",
+    "6": "Preset 6",
+    "7": "Preset 7",
+    "8": "Preset 8",
+    "9": "Reset Track Paths",
+    "10": "Save Preset"
+  },
+  "Row 2": {
+    "1": "Bypass (Chord Player)",
+    "2": "Flush",
+    "3": "Legato",
+    "4": "Midilearn",
+    "5": "Keylearn",
+    "6": "Learn",
+    "7": "Clear",
+    "8": "Clearall",
+    "9": "Nothing",
+    "10": "Reread Chords"
+  },
+  "Row 3": {
+    "1": "Map Foot Pedal 1  ",
+    "2": "Map Foot Pedal 2",
+    "3": "Nothing",
+    "4": "Nothing",
+    "5": "Nothing",
+    "6": "UnMap Foot Pedal 1",
+    "7": "UnMap Foot Pedal 2",
+    "8": "Nothing",
+    "9": "Nothing",
+    "10": "Nothing"
+  },
+  "Row 4": {
+    "1": "Glove Serial On",
+    "2": "Glove Serial Off",
+    "3": "Map X ",
+    "4": "Map Y",
+    "5": "Map Z",
+    "6": "Half Mode",
+    "7": "Unmap X",
+    "8": "Unmap Y",
+    "9": "Unmap Z",
+    "10": "Nothing"
+  },
+  "Row 5": {
+    "1": "Fishman Hold Unknown",
+    "2": "Fishman Hold Unknown",
+    "3": "Fishman Hold Unknown",
+    "4": "Fishman Hold Unknown",
+    "5": "Nothing",
+    "6": "Nothing",
+    "7": "Nothing",
+    "8": "Nothing",
+    "9": "Nothing",
+    "10": "Nothing"
+  },
+  "Row 6": {
+    "1": "Nothing",
+    "2": "Nothing",
+    "3": "Nothing",
+    "4": "Nothing",
+    "5": "Nothing",
+    "6": "Nothing",
+    "7": "Nothing",
+    "8": "Nothing",
+    "9": "Nothing",
+    "10": "Nothing"
+  },
+  "Row 7": {
+    "1": "Nothing",
+    "2": "Nothing",
+    "3": "Nothing",
+    "4": "Nothing",
+    "5": "Nothing",
+    "6": "Nothing",
+    "7": "Nothing",
+    "8": "Nothing",
+    "9": "Nothing",
+    "10": "Nothing"
+  },
+  "Row 8": {
+    "1": "Nothing",
+    "2": "Nothing",
+    "3": "Nothing",
+    "4": "Nothing",
+    "5": "Nothing",
+    "6": "Nothing",
+    "7": "Nothing",
+    "8": "Nothing",
+    "9": "Nothing",
+    "10": "Nothing"
+  },
+  "Row 9": {
+    "1": "Select Adjacent Track -4",
+    "2": "Select Adjacent Track -3",
+    "3": "Select Adjacent Track -2",
+    "4": "Select Adjacent Track -1",
+    "5": "Select This Track",
+    "6": "Select Adjacent Track +1",
+    "7": "Nothing",
+    "8": "Nothing",
+    "9": "Select 1st Track in Set",
+    "10": "Select Armed Tracks"
+  }
+}
