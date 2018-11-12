@@ -2,8 +2,8 @@
     "pattrstorage": {
         "name": "chordstore",
         "slots": {
-            "slot_2": {
-                "id": 2,
+            "slot_0": {
+                "id": 0,
                 "data": {
                     "activekeys": [
                         60,
@@ -23,14 +23,16 @@
                         84,
                         86
                     ],
-                    "chord_1": [
-                        2,
-                        20
-                    ],
-                    "chord_2": [
-                        4
-                    ],
-                    "chord_3": [
+                    "chord_1": [],
+                    "chord_2": [],
+                    "chord_3": [],
+                    "chord_4": [],
+                    "chord_5": []
+                }
+            }
+        }
+    }
+}[
                         6,
                         10
                     ]
