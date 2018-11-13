@@ -25,18 +25,26 @@ var times = data['times']
 var slot = data['slot']
 
 var unique_times = times.filter(onlyUnique)
-unique_times.sort()
+unique_times.sort(sortNumber)
+
+
 
 
 var chords = []
-for (var i = 0; i < unique_times.length; i++){
-    var time = unique_times[i]
-    var chord = []
-    for (var j = 0; j < notes.length; j++){
-        if(times[j] == time){
-            chord.push(notes[j])
-        }
+for (var i = 0; i < 16; i++){
+	var chord = []
+	if (i < unique_times.length){		
+		var time = unique_times[i]
+		
+		for (var j = 0; j < notes.length; j++){
+			if(times[j] == time){
+				chord.push(notes[j])
+			}
+		}
     }
+	else{
+		chord.push(999)
+	}
 
     chords.push(chord)
     
@@ -174,4 +182,8 @@ function read(p) {
     return UI
 	//UI = eval("("+memstr+")"); //much less secure, but could work
 	// post("\nJSON Read",path);
+}
+
+function sortNumber(a,b) {
+    return a - b;
 }
