@@ -45,6 +45,8 @@ ybottom = 13   #buffer from edges
 xtop = 0
 ytop =  13
 
+width = sensor.width()
+
 scalex = 127/(sensor.height()-xbottom - xtop)   # scale outputs to 127
 scaley = 127/(sensor.width()-ybottom -ytop)
 scalez = (127/(sensor.width()*sensor.height()))*10    #factor gives fraction of area that will max out integer
@@ -92,7 +94,7 @@ while(True):
 
             largeblob = blob[bloblenlist.index(max(bloblenlist))]
 
-            y = int((largeblob.x() - ybottom)*(scaley)) ###Flipped
+            y = int((width - largeblob.x() - ybottom)*(scaley)) ###Flipped
             x = int((largeblob.y() - xbottom)*(scalex))
             z = int(largeblob.pixels()*scalez)
 
