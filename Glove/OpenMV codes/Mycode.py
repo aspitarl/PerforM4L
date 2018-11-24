@@ -1,13 +1,7 @@
-# Hello World Example
-#
-# Welcome to the OpenMV IDE! Click on the green run arrow button below to run the script!
-
-
 import sensor, image, time
 
 from pyb import UART
 from pyb import USB_VCP
-
 
 def timeprint(num):
     if(1):  # set to determine if times should be printed
@@ -35,7 +29,6 @@ sensor.set_auto_exposure(0,value=100)
 
 clock = time.clock()                # Create a clock object to track the FPS.
 
-
 x = 0
 y = 0    ###X AND Y FLIPPIED
 
@@ -58,14 +51,13 @@ halfmode = 1
 mode = 1 # 0 for debug 1 for run
 
 while(True):
-    time.sleep(100)
+    #time.sleep(100)
 
     if(usb.any()): # send a character through serial to obtain background
         #halfmode = int.from_bytes(usb.read(), 'little')
         halfmode = int(usb.read())
 
     if(mode):
-
         #timeprint(0)
 
         img = sensor.snapshot()         # Take a picture and return the image.
@@ -75,26 +67,16 @@ while(True):
         #stat = img.get_statistics()
         #print(stat.max())
 
-
-
         #img.binary([(30,255)])
         blob = img.find_blobs([(100,255)],area_threshold=2)
-
-
 
         if(len(blob)):                  #Don't do anything if there are no blobs
             bloblenlist = [0]*len(blob)
 
-            #timeprint(1)
-
             for i, blobobj in enumerate(blob):
                 bloblenlist[i] = blobobj.pixels()
 
-            #timeprint(2)
-
             largeblob = blob[bloblenlist.index(max(bloblenlist))]
-
-
 
             if(halfmode):
                 yraw = largeblob.x()
@@ -120,20 +102,9 @@ while(True):
             if(y > 127):
                 y = 127
 
-
-            #usb.write(chr(x))
-            #usb.write(chr(y))
-            #usb.write(chr(z))
-            #usb.write("\r")
-
-            #usb.write(x)
-            #usb.write(y)
-            #usb.write(z)
-            #usb.write("\r")
-
-            usb.write(chr(halfmode))
-            usb.write(chr(halfmode))
-            usb.write(chr(halfmode))
+            usb.write(chr(x))
+            usb.write(chr(y))
+            usb.write(chr(z))
             usb.write("\r")
 
             #print(y)
