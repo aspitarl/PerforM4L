@@ -2,14 +2,14 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 0,
-			"revision" : 0,
+			"major" : 7,
+			"minor" : 3,
+			"revision" : 5,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 2282.0, 114.0, 944.0, 592.0 ],
+		"rect" : [ 550.0, 114.0, 538.0, 592.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -37,6 +37,60 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 144.0, 185.0, 29.5, 22.0 ],
+					"style" : "",
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "int", "int" ],
+					"patching_rect" : [ 128.0, 145.0, 85.0, 22.0 ],
+					"style" : "",
+					"text" : "live.thisdevice"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-29",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 110.0, 112.0, 24.0, 24.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 154.239868, 1.0, 18.0, 18.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 71.0, 157.0, 34.0, 22.0 ],
+					"style" : "",
+					"text" : "gate"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"comment" : "Bang to map",
 					"id" : "obj-28",
@@ -107,9 +161,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 0,
-							"revision" : 0,
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 5,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1491,9 +1545,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 0,
-							"revision" : 0,
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 5,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1918,9 +1972,9 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 0,
-											"revision" : 0,
+											"major" : 7,
+											"minor" : 3,
+											"revision" : 5,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2488,9 +2542,9 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 0,
-											"revision" : 0,
+											"major" : 7,
+											"minor" : 3,
+											"revision" : 5,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2983,9 +3037,9 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 0,
-											"revision" : 0,
+											"major" : 7,
+											"minor" : 3,
+											"revision" : 5,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3121,9 +3175,9 @@
 													"patcher" : 													{
 														"fileversion" : 1,
 														"appversion" : 														{
-															"major" : 8,
-															"minor" : 0,
-															"revision" : 0,
+															"major" : 7,
+															"minor" : 3,
+															"revision" : 5,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
@@ -4311,10 +4365,10 @@
 , 							{
 								"name" : "myrPattr",
 								"default" : 								{
-									"fontsize" : [ 12.0 ],
-									"fontname" : [ "Arial" ],
 									"accentcolor" : [ 0.945098, 0.913725, 0.407843, 1.0 ],
-									"fontface" : [ 0 ]
+									"fontface" : [ 0 ],
+									"fontsize" : [ 12.0 ],
+									"fontname" : [ "Arial" ]
 								}
 ,
 								"parentstyle" : "",
@@ -4341,9 +4395,9 @@
 , 							{
 								"name" : "myrSubpatch",
 								"default" : 								{
+									"accentcolor" : [ 0.082353, 0.431373, 0.411765, 1.0 ],
 									"fontsize" : [ 12.0 ],
-									"fontname" : [ "Arial" ],
-									"accentcolor" : [ 0.082353, 0.431373, 0.411765, 1.0 ]
+									"fontname" : [ "Arial" ]
 								}
 ,
 								"parentstyle" : "",
@@ -4394,22 +4448,22 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 122.239868, 67.0, 51.0, 17.0 ],
+					"patching_rect" : [ 122.239868, 67.0, 51.0, 16.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 138.0, 1.0, 32.0, 17.0 ],
+					"presentation_rect" : [ 126.0, 1.0, 32.0, 16.0 ],
 					"prototypename" : "amount",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_linknames" : 1,
 							"parameter_longname" : "Max[2]",
-							"parameter_initial_enable" : 1,
-							"parameter_invisible" : 1,
-							"parameter_mmax" : 100.0,
-							"parameter_initial" : [ 100 ],
-							"parameter_speedlim" : 0.0,
 							"parameter_shortname" : "Max",
 							"parameter_type" : 0,
+							"parameter_mmax" : 100.0,
+							"parameter_initial_enable" : 1,
+							"parameter_initial" : [ 100 ],
 							"parameter_unitstyle" : 0,
-							"parameter_linknames" : 1
+							"parameter_speedlim" : 0.0,
+							"parameter_invisible" : 1
 						}
 
 					}
@@ -4436,22 +4490,22 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 77.239868, 67.0, 51.0, 17.0 ],
+					"patching_rect" : [ 77.239868, 67.0, 51.0, 16.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 110.0, 1.0, 29.0, 17.0 ],
+					"presentation_rect" : [ 98.0, 1.0, 29.0, 16.0 ],
 					"prototypename" : "amount",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_linknames" : 1,
 							"parameter_longname" : "Min[2]",
-							"parameter_initial_enable" : 1,
-							"parameter_invisible" : 1,
-							"parameter_mmax" : 100.0,
-							"parameter_initial" : [ 0 ],
-							"parameter_speedlim" : 0.0,
 							"parameter_shortname" : "Min",
 							"parameter_type" : 0,
+							"parameter_mmax" : 100.0,
+							"parameter_initial_enable" : 1,
+							"parameter_initial" : [ 0 ],
 							"parameter_unitstyle" : 0,
-							"parameter_linknames" : 1
+							"parameter_speedlim" : 0.0,
+							"parameter_invisible" : 1
 						}
 
 					}
@@ -4475,7 +4529,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 662.239868, 488.0, 128.0, 128.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 138.0, 0.0, 28.0, 18.0 ],
+					"presentation_rect" : [ 126.0, 0.0, 28.0, 18.0 ],
 					"proportion" : 0.39,
 					"rounded" : 0,
 					"style" : ""
@@ -4495,7 +4549,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 527.239868, 488.0, 128.0, 128.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 108.0, 0.0, 28.0, 18.0 ],
+					"presentation_rect" : [ 96.0, 0.0, 28.0, 18.0 ],
 					"proportion" : 0.39,
 					"rounded" : 0,
 					"style" : ""
@@ -4508,7 +4562,6 @@
 					"activebgoncolor" : [ 0.278431, 0.839216, 1.0, 0.0 ],
 					"activetextcolor" : [ 0.278431, 0.839216, 1.0, 1.0 ],
 					"annotation" : "first click here and then click on the control in live you want to modulate",
-					"annotation_name" : "Map",
 					"automation" : "off",
 					"automationon" : "on",
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.301961 ],
@@ -4524,20 +4577,20 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 420.239868, 226.0, 92.786621, 16.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 0.0, 85.5, 18.375 ],
+					"presentation_rect" : [ 2.0, 0.0, 71.5, 18.375 ],
 					"prototypename" : "onoff",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_annotation_name" : "Map",
+							"parameter_linknames" : 1,
 							"parameter_longname" : "Map[3]",
-							"parameter_invisible" : 2,
+							"parameter_shortname" : "Map",
+							"parameter_type" : 2,
 							"parameter_mmax" : 1.0,
+							"parameter_enum" : [ "off", "on" ],
 							"parameter_initial" : [ 0.0 ],
 							"parameter_speedlim" : 0.0,
-							"parameter_shortname" : "Map",
-							"parameter_enum" : [ "off", "on" ],
-							"parameter_type" : 2,
-							"parameter_linknames" : 1
+							"parameter_invisible" : 2,
+							"parameter_annotation_name" : "Map"
 						}
 
 					}
@@ -4561,7 +4614,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 662.239868, 353.0, 128.0, 128.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 89.178284, 0.0, 18.5, 18.0625 ],
+					"presentation_rect" : [ 77.178284, 0.0, 18.5, 18.0625 ],
 					"proportion" : 0.39,
 					"rounded" : 0,
 					"style" : ""
@@ -4581,7 +4634,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 527.239868, 353.0, 128.0, 128.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1.0, 0.0, 86.5, 18.0 ],
+					"presentation_rect" : [ 1.0, 0.0, 72.5, 18.0 ],
 					"proportion" : 0.39,
 					"rounded" : 0,
 					"style" : ""
@@ -4683,7 +4736,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 285.274231, 328.5, 113.0, 33.0 ],
+					"patching_rect" : [ 285.274231, 328.5, 113.0, 34.0 ],
 					"presentation_linecount" : 2,
 					"presentation_rect" : [ 285.274231, 328.5, 113.0, 33.0 ],
 					"style" : "",
@@ -4777,9 +4830,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 0,
-							"revision" : 0,
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 5,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5100,9 +5153,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 0,
-							"revision" : 0,
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 5,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5296,9 +5349,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 0,
-							"revision" : 0,
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 5,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5765,7 +5818,6 @@
 					"activetextcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"activetextoncolor" : [ 1.0, 1.0, 1.0, 0.81 ],
 					"annotation" : "Unmaps the currently mapped parameter.",
-					"annotation_name" : "Unmap",
 					"bgcolor" : [ 0.0, 0.0, 0.0, 0.0 ],
 					"bgoncolor" : [ 0.317647, 0.654902, 0.976471, 0.580392 ],
 					"bordercolor" : [ 0.278431, 0.839216, 1.0, 0.0 ],
@@ -5780,17 +5832,17 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 242.239868, 67.0, 34.807388, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 89.178284, 0.0, 17.5, 18.0625 ],
+					"presentation_rect" : [ 77.178284, 0.0, 17.5, 18.0625 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_annotation_name" : "Unmap",
+							"parameter_linknames" : 1,
 							"parameter_longname" : "Unmap[2]",
-							"parameter_invisible" : 1,
-							"parameter_mmax" : 1.0,
 							"parameter_shortname" : "Unmap",
-							"parameter_enum" : [ "val1", "val2" ],
 							"parameter_type" : 2,
-							"parameter_linknames" : 1
+							"parameter_mmax" : 1.0,
+							"parameter_enum" : [ "val1", "val2" ],
+							"parameter_invisible" : 1,
+							"parameter_annotation_name" : "Unmap"
 						}
 
 					}
@@ -5820,7 +5872,7 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
+					"destination" : [ "obj-22", 1 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -5930,6 +5982,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"source" : [ "obj-22", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-30", 0 ],
 					"midpoints" : [ 371.239868, 421.5, 251.239868, 421.5 ],
 					"source" : [ "obj-23", 0 ]
@@ -5982,8 +6041,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-29", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
 					"source" : [ "obj-30", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-35", 0 ],
+					"source" : [ "obj-31", 0 ]
 				}
 
 			}
@@ -5998,6 +6071,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-34", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-29", 0 ],
+					"source" : [ "obj-35", 0 ]
 				}
 
 			}
@@ -6084,19 +6164,15 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-19" : [ "Map[3]", "Map", 0 ],
 			"obj-26" : [ "Min[2]", "Min", 0 ],
-			"obj-20" : [ "Max[2]", "Max", 0 ],
 			"obj-15" : [ "Unmap[2]", "Unmap", 0 ],
-			"parameterbanks" : 			{
-
-			}
-
+			"obj-20" : [ "Max[2]", "Max", 0 ],
+			"obj-19" : [ "Map[3]", "Map", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "stringformat.js",
-				"bootpath" : "~/Google Drive/Production/My M4L Suite 2/Mapping",
+				"bootpath" : "~/Git/PerforM4L/Mapping",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
