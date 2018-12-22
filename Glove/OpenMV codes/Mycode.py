@@ -47,17 +47,21 @@ scaley = 127/(sensor.width()-ybottom -ytop)
 scalez = (127/(sensor.width()*sensor.height()))*10    #factor gives fraction of area that will max out integer
 
 
-halfmode = 1
-mode = 1 # 0 for debug 1 for run
+yhalf = sensor.width()/2
+buf = 10
+scaley_half = 64/(yhalf - 2*buf)
+
+mode = 0
+debug = 0 # 0 for debug 1 for run
 
 while(True):
     #time.sleep(100)
 
-    if(usb.any()): # send a character through serial to obtain background
+    if(usb.any()):
         #halfmode = int.from_bytes(usb.read(), 'little')
-        halfmode = int(usb.read())
+        mode = int(usb.read())
 
-    if(mode):
+    if not debug:
         #timeprint(0)
 
         img = sensor.snapshot()         # Take a picture and return the image.
@@ -78,14 +82,27 @@ while(True):
 
             largeblob = blob[bloblenlist.index(max(bloblenlist))]
 
-            if(halfmode):
+            if(mode == 0): # Half Mode
                 yraw = largeblob.x()
                 if(yraw>halfwidth):
                     y = int((width - yraw)*(scaley*2)-ybottom) ###Flipped
                 else:
                     y = int(yraw*(scaley*2)-ybottom) ###Flipped
-            else:
+            elif(mode == 1): # Regular
                 y = int((width - largeblob.x() - ybottom)*(scaley)) ###Flipped
+            else:
+                yraw = width - largeblob.x()###Flipped
+                if(yraw < buf):
+                    y = 0
+                elif(yraw > width - buf):
+                    y = 127
+                elif (abs(yraw - yhalf) <  buf + 1):
+                    y = 64
+                elif ( (yraw > buf) and (yraw< yhalf-buf ) ):
+                    y = int((yraw - buf)*(scaley_half))
+                elif ( (yraw > yhalf+ buf) and (yraw< width-buf ) ):
+                    y = int((yraw+buf-width)*(scaley_half)+127)
+
 
             #timeprint(3)
 
@@ -109,8 +126,21 @@ while(True):
 
             #print(y)
 
-            uart.writechar(x)
-            uart.writechar(y)
+            if mode == 0 or mode == 1:
+                color = x
+                bright = y
+            else:
+                if y < 64:
+                    bright = (y)+15
+                else:
+                    bright = (127-y)+15
+
+                if y != 64:
+                    color = 0
+                else:
+                    color = 124
+            uart.writechar(color)
+            uart.writechar(bright)
             uart.writechar(z)
             uart.writechar(10)
 
