@@ -2,14 +2,14 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 7,
-			"minor" : 3,
-			"revision" : 5,
+			"major" : 8,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 550.0, 114.0, 538.0, 592.0 ],
+		"rect" : [ 34.0, 77.0, 1468.0, 713.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -38,12 +38,28 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"comment" : "path",
+					"id" : "obj-27",
+					"index" : 5,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 662.239868, 14.0, 30.0, 30.0 ],
+					"presentation_rect" : [ 662.239868, 14.0, 30.0, 30.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-35",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 144.0, 185.0, 29.5, 22.0 ],
+					"presentation_rect" : [ 144.0, 185.0, 29.5, 22.0 ],
 					"style" : "",
 					"text" : "1"
 				}
@@ -57,6 +73,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "bang", "int", "int" ],
 					"patching_rect" : [ 128.0, 145.0, 85.0, 22.0 ],
+					"presentation_rect" : [ 128.0, 145.0, 85.0, 22.0 ],
 					"style" : "",
 					"text" : "live.thisdevice"
 				}
@@ -85,6 +102,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 71.0, 157.0, 34.0, 22.0 ],
+					"presentation_rect" : [ 71.0, 157.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "gate"
 				}
@@ -94,7 +112,7 @@
 				"box" : 				{
 					"comment" : "Bang to map",
 					"id" : "obj-28",
-					"index" : 0,
+					"index" : 2,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -109,7 +127,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-21",
-					"index" : 0,
+					"index" : 2,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -123,11 +141,11 @@
 				"box" : 				{
 					"comment" : "path",
 					"id" : "obj-18",
-					"index" : 0,
+					"index" : 4,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 576.239868, 14.0, 30.0, 30.0 ],
 					"presentation_rect" : [ 576.239868, 14.0, 30.0, 30.0 ],
 					"style" : ""
@@ -138,7 +156,7 @@
 				"box" : 				{
 					"comment" : "unmap bang",
 					"id" : "obj-16",
-					"index" : 0,
+					"index" : 3,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -161,9 +179,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 7,
-							"minor" : 3,
-							"revision" : 5,
+							"major" : 8,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1545,9 +1563,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 7,
-							"minor" : 3,
-							"revision" : 5,
+							"major" : 8,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1660,7 +1678,7 @@
 									"maxclass" : "inlet",
 									"numinlets" : 0,
 									"numoutlets" : 1,
-									"outlettype" : [ "" ],
+									"outlettype" : [ "bang" ],
 									"patching_rect" : [ 631.75, 23.0, 18.0, 18.0 ],
 									"presentation_rect" : [ 631.75, 23.0, 18.0, 18.0 ],
 									"style" : ""
@@ -1972,9 +1990,9 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 7,
-											"minor" : 3,
-											"revision" : 5,
+											"major" : 8,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2542,9 +2560,9 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 7,
-											"minor" : 3,
-											"revision" : 5,
+											"major" : 8,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3037,9 +3055,9 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 7,
-											"minor" : 3,
-											"revision" : 5,
+											"major" : 8,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3175,9 +3193,9 @@
 													"patcher" : 													{
 														"fileversion" : 1,
 														"appversion" : 														{
-															"major" : 7,
-															"minor" : 3,
-															"revision" : 5,
+															"major" : 8,
+															"minor" : 0,
+															"revision" : 0,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
@@ -4365,10 +4383,10 @@
 , 							{
 								"name" : "myrPattr",
 								"default" : 								{
-									"accentcolor" : [ 0.945098, 0.913725, 0.407843, 1.0 ],
-									"fontface" : [ 0 ],
 									"fontsize" : [ 12.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 0 ],
+									"accentcolor" : [ 0.945098, 0.913725, 0.407843, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -4395,9 +4413,9 @@
 , 							{
 								"name" : "myrSubpatch",
 								"default" : 								{
-									"accentcolor" : [ 0.082353, 0.431373, 0.411765, 1.0 ],
 									"fontsize" : [ 12.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"accentcolor" : [ 0.082353, 0.431373, 0.411765, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -4448,22 +4466,22 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 122.239868, 67.0, 51.0, 16.0 ],
+					"patching_rect" : [ 122.239868, 67.0, 51.0, 17.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 126.0, 1.0, 32.0, 16.0 ],
+					"presentation_rect" : [ 126.0, 1.0, 32.0, 17.0 ],
 					"prototypename" : "amount",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_linknames" : 1,
-							"parameter_longname" : "Max[2]",
+							"parameter_longname" : "Max[4]",
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_mmax" : 100.0,
+							"parameter_initial" : [ 100 ],
+							"parameter_speedlim" : 0.0,
 							"parameter_shortname" : "Max",
 							"parameter_type" : 0,
-							"parameter_mmax" : 100.0,
-							"parameter_initial_enable" : 1,
-							"parameter_initial" : [ 100 ],
 							"parameter_unitstyle" : 0,
-							"parameter_speedlim" : 0.0,
-							"parameter_invisible" : 1
+							"parameter_linknames" : 1
 						}
 
 					}
@@ -4490,22 +4508,22 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 77.239868, 67.0, 51.0, 16.0 ],
+					"patching_rect" : [ 77.239868, 67.0, 51.0, 17.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 98.0, 1.0, 29.0, 16.0 ],
+					"presentation_rect" : [ 98.0, 1.0, 29.0, 17.0 ],
 					"prototypename" : "amount",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_linknames" : 1,
-							"parameter_longname" : "Min[2]",
+							"parameter_longname" : "Min[4]",
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_mmax" : 100.0,
+							"parameter_initial" : [ 0 ],
+							"parameter_speedlim" : 0.0,
 							"parameter_shortname" : "Min",
 							"parameter_type" : 0,
-							"parameter_mmax" : 100.0,
-							"parameter_initial_enable" : 1,
-							"parameter_initial" : [ 0 ],
 							"parameter_unitstyle" : 0,
-							"parameter_speedlim" : 0.0,
-							"parameter_invisible" : 1
+							"parameter_linknames" : 1
 						}
 
 					}
@@ -4562,6 +4580,7 @@
 					"activebgoncolor" : [ 0.278431, 0.839216, 1.0, 0.0 ],
 					"activetextcolor" : [ 0.278431, 0.839216, 1.0, 1.0 ],
 					"annotation" : "first click here and then click on the control in live you want to modulate",
+					"annotation_name" : "Map",
 					"automation" : "off",
 					"automationon" : "on",
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.301961 ],
@@ -4581,15 +4600,15 @@
 					"prototypename" : "onoff",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_linknames" : 1,
-							"parameter_longname" : "Map[3]",
-							"parameter_shortname" : "Map",
-							"parameter_type" : 2,
+							"parameter_longname" : "Map[6]",
+							"parameter_invisible" : 2,
 							"parameter_mmax" : 1.0,
-							"parameter_enum" : [ "off", "on" ],
 							"parameter_initial" : [ 0.0 ],
 							"parameter_speedlim" : 0.0,
-							"parameter_invisible" : 2,
+							"parameter_shortname" : "Map",
+							"parameter_enum" : [ "off", "on" ],
+							"parameter_type" : 2,
+							"parameter_linknames" : 1,
 							"parameter_annotation_name" : "Map"
 						}
 
@@ -4736,7 +4755,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 285.274231, 328.5, 113.0, 34.0 ],
+					"patching_rect" : [ 285.274231, 328.5, 113.0, 33.0 ],
 					"presentation_linecount" : 2,
 					"presentation_rect" : [ 285.274231, 328.5, 113.0, 33.0 ],
 					"style" : "",
@@ -4762,7 +4781,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-2",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -4791,11 +4810,11 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-1",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "float" ],
 					"patching_rect" : [ 32.239868, 7.0, 26.0, 26.0 ],
 					"presentation_rect" : [ 32.239868, 7.0, 26.0, 26.0 ],
 					"style" : ""
@@ -4830,9 +4849,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 7,
-							"minor" : 3,
-							"revision" : 5,
+							"major" : 8,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5153,9 +5172,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 7,
-							"minor" : 3,
-							"revision" : 5,
+							"major" : 8,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5349,9 +5368,9 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 7,
-							"minor" : 3,
-							"revision" : 5,
+							"major" : 8,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5818,6 +5837,7 @@
 					"activetextcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"activetextoncolor" : [ 1.0, 1.0, 1.0, 0.81 ],
 					"annotation" : "Unmaps the currently mapped parameter.",
+					"annotation_name" : "Unmap",
 					"bgcolor" : [ 0.0, 0.0, 0.0, 0.0 ],
 					"bgoncolor" : [ 0.317647, 0.654902, 0.976471, 0.580392 ],
 					"bordercolor" : [ 0.278431, 0.839216, 1.0, 0.0 ],
@@ -5835,13 +5855,13 @@
 					"presentation_rect" : [ 77.178284, 0.0, 17.5, 18.0625 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_linknames" : 1,
-							"parameter_longname" : "Unmap[2]",
-							"parameter_shortname" : "Unmap",
-							"parameter_type" : 2,
-							"parameter_mmax" : 1.0,
-							"parameter_enum" : [ "val1", "val2" ],
+							"parameter_longname" : "Unmap[4]",
 							"parameter_invisible" : 1,
+							"parameter_mmax" : 1.0,
+							"parameter_shortname" : "Unmap",
+							"parameter_enum" : [ "val1", "val2" ],
+							"parameter_type" : 2,
+							"parameter_linknames" : 1,
 							"parameter_annotation_name" : "Unmap"
 						}
 
@@ -6034,6 +6054,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-29", 0 ],
+					"source" : [ "obj-27", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
 					"source" : [ "obj-28", 0 ]
 				}
@@ -6162,23 +6189,7 @@
 				}
 
 			}
- ],
-		"parameters" : 		{
-			"obj-26" : [ "Min[2]", "Min", 0 ],
-			"obj-15" : [ "Unmap[2]", "Unmap", 0 ],
-			"obj-20" : [ "Max[2]", "Max", 0 ],
-			"obj-19" : [ "Map[3]", "Map", 0 ]
-		}
-,
-		"dependency_cache" : [ 			{
-				"name" : "stringformat.js",
-				"bootpath" : "~/Git/PerforM4L/Mapping",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
- ],
-		"autosave" : 0
+ ]
 	}
 
 }
