@@ -1,20 +1,60 @@
 
 
-var fs = require("fs");
+//var fs = require("fs");
 
-function onlyUnique(value, index, self) { 
-    return self.indexOf(value) === index;
-}
+
 
 // inlets and outlets
 inlets = 1;
 outlets = 1;
 
 // global variables
+var json_out = {
+     "pattrstorage" : 	{
+         "name" : "chordstore",
+         "slots" : 		{
 
-// float -- run the equation once
-function dictionary()
-{
+
+             }
+         }
+     }
+
+
+var path = this.patcher.filepath
+var path = path.split('/').slice(0,-1).join('/') + "/ChordInfo.json"; 
+
+
+
+function bang(){
+//Resets the global json_out variable and erases the file
+
+
+json_out = {
+     "pattrstorage" : 	{
+         "name" : "chordstore",
+         "slots" : 		{
+
+
+             }
+         }
+     }
+
+
+var f = new File(path,'write','TEXT');
+f.eof = 0;
+f.close();
+
+
+
+}
+
+
+
+function dictionary(){
+// Adds a dictionary to json_out
+
+
+
 dictname = arguments[0]
 var dict = new Dict(dictname); 
 var data = new Object();
@@ -51,33 +91,6 @@ for (var i = 0; i < 16; i++){
     
 }
 
-var path = this.patcher.filepath
-var path = path.split('/').slice(0,-1).join('/') + "/ChordInfo.json"; 
-
-
-
-//For now, just creating new file each time. 
-var json_out = {
-     "pattrstorage" : 	{
-         "name" : "chordstore",
-         "slots" : 		{
-
-
-             }
-         }
-     }
-
-var f = new File(path,"read");
-length = f.eof
-f.close()
-
-if(length > 0){
-    var existing_data = read(path)
-    json_out = existing_data
-    //post(JSON.stringify(json_out, null, 4))
-    
-}
-
 
 var new_item = {'id': slot , "data" : {
         "activekeys" : [ 60, 62, 63, 65, 67, 68, 70, 72, 74, 75, 77, 79, 80, 82, 84, 86 ],
@@ -92,9 +105,14 @@ for (var i = 1; i < chords.length + 1; i++){
     var name = "chord_" + i.toString()
     json_out.pattrstorage.slots[slot_name].data[name] = chords[i-1]
 
+    }
+
 }
 
 
+
+function write(){
+//Write json_out to the file
 
 var json_string = JSON.stringify(json_out, null, 4)
 
@@ -104,28 +122,13 @@ f.writestring(json_string);
 f.close();
 
 outlet(0,path)
-
 }
 
-function bang(){
-
-//For now, just creating new file each time. 
-var json_out = {
-     "pattrstorage" : 	{
-         "name" : "chordstore",
-         "slots" : 		{
 
 
-             }
-         }
-     }
+// ------------utilities---------
 
-
-var f = new File(path,'write','TEXT');
-f.eof = 0;
-f.close();
-
-}
+//not all being used, kept for reference. 
 
 
 function dict_to_jsobj(dict) {
@@ -191,11 +194,10 @@ function printobjrecurse (obj, name) {
     }
 }
 
-function read(p) {
+function read(path) {
 	memstr = "";
 	data = "";
 	maxchars = 800;
-	path = p;
 	var f = new File(path,"read");
 	f.open();
 	if (f.isopen) {
@@ -215,4 +217,9 @@ function read(p) {
 
 function sortNumber(a,b) {
     return a - b;
+}
+
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
 }
