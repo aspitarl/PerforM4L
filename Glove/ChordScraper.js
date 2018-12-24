@@ -54,23 +54,30 @@ for (var i = 0; i < 16; i++){
 var path = this.patcher.filepath
 var path = path.split('/').slice(0,-1).join('/') + "/ChordInfo.json"; 
 
-// var f = new File(path,'read','TEXT');
 
 
-
-var existing_data = read(path)
-json_out = existing_data
-
-////in case the file is removed, uncomment this to create new file
-// var json_out = {
-//     "pattrstorage" : 	{
-//         "name" : "chordstore",
-//         "slots" : 		{
+//For now, just creating new file each time. 
+var json_out = {
+     "pattrstorage" : 	{
+         "name" : "chordstore",
+         "slots" : 		{
 
 
-//             }
-//         }
-//     }
+             }
+         }
+     }
+
+var f = new File(path,"read");
+length = f.eof
+f.close()
+
+if(length > 0){
+    var existing_data = read(path)
+    json_out = existing_data
+    //post(JSON.stringify(json_out, null, 4))
+    
+}
+
 
 var new_item = {'id': slot , "data" : {
         "activekeys" : [ 60, 62, 63, 65, 67, 68, 70, 72, 74, 75, 77, 79, 80, 82, 84, 86 ],
@@ -88,13 +95,35 @@ for (var i = 1; i < chords.length + 1; i++){
 }
 
 
-// fs.writeFile(path, JSON.stringify(json_out, null, 4))
+
+var json_string = JSON.stringify(json_out, null, 4)
+
 
 var f = new File(path,'write','TEXT');
-f.writestring(JSON.stringify(json_out, null, 4));
+f.writestring(json_string);
 f.close();
 
 outlet(0,path)
+
+}
+
+function bang(){
+
+//For now, just creating new file each time. 
+var json_out = {
+     "pattrstorage" : 	{
+         "name" : "chordstore",
+         "slots" : 		{
+
+
+             }
+         }
+     }
+
+
+var f = new File(path,'write','TEXT');
+f.eof = 0;
+f.close();
 
 }
 
