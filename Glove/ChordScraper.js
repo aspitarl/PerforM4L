@@ -6,7 +6,7 @@
 
 // inlets and outlets
 inlets = 1;
-outlets = 1;
+outlets = 2;
 
 // global variables
 var json_out = {
@@ -40,6 +40,7 @@ json_out = {
      }
 
 
+
 var f = new File(path,'write','TEXT');
 f.eof = 0;
 f.close();
@@ -68,9 +69,9 @@ var unique_times = times.filter(onlyUnique)
 unique_times.sort(sortNumber)
 
 
-
-
 var chords = []
+
+
 for (var i = 0; i < 16; i++){
 	var chord = []
 	if (i < unique_times.length){		
@@ -79,8 +80,10 @@ for (var i = 0; i < 16; i++){
 		for (var j = 0; j < notes.length; j++){
 			if(times[j] == time){
 				chord.push(notes[j])
+
 			}
 		}
+		outlet(1,chord)
     }
 	else{
 		chord.push(999)
@@ -90,6 +93,8 @@ for (var i = 0; i < 16; i++){
     
     
 }
+
+
 
 
 var new_item = {'id': slot , "data" : {
@@ -122,6 +127,7 @@ f.writestring(json_string);
 f.close();
 
 outlet(0,path)
+
 }
 
 
