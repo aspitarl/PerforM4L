@@ -10,14 +10,6 @@
          <ablFR:items>
             <rdf:Bag>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>Glove.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>6</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
                   <ablFR:filePath>Chords.2.11_cust.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
@@ -35,9 +27,9 @@
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Updated by Ableton Index 10.0.5</xmp:CreatorTool>
+         <xmp:CreatorTool>Updated by Ableton Index 10.0.6</xmp:CreatorTool>
          <xmp:CreateDate>2018-11-01T18:25:08-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2018-12-21T20:30:25-08:00</xmp:MetadataDate>
+         <xmp:MetadataDate>2019-05-25T01:26:27-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
