@@ -1,0 +1,16 @@
+To load in new samples
+
+get a sample to 4 bars in length and consolidate/crop
+
+drag into 3rd row out of 5 of drum rack. 8 bar on bottom
+
+
+sampler settings:
+
+classic, set release to zero,  warp complex
+
+then copy into other 5 slots and stretch to right time
+
+Changes needed: 
+
+Need to just use a max for live device to send the right duration note.  Right now swell required to be in one shot mode so that the midi note doesn't stop after 8 bars
