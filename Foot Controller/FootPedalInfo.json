@@ -3,12 +3,12 @@
     "1": "Trigger Previous Scene",
     "2": "Trigger Current Scene",
     "3": "Trigger Next Scene",
-    "4": "Unarm All Tracks",
-    "5": "Arm Selected Track",
-    "6": "Stop Armed Track",
-    "7": "Disable Clips of Armed Tracks",
-    "8": "Disable Notes of Armed Tracks",
-    "9": "Renable Automation",
+    "4": "Tension Start",
+    "5": "Tension Cancel",
+    "6": "Go To Tension",
+    "7": "Disarm All Tracks",
+    "8": "Disable Clips of Armed Tracks",
+    "9": "Disable Notes of Armed Tracks",
     "10": "Disable Auto Scene Select"
   },
   "Row 1": {
