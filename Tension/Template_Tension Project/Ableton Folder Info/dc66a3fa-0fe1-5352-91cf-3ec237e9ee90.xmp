@@ -1,0 +1,27 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 5.6.0">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:ablFR="https://ns.ableton.com/xmp/fs-resources/1.0/"
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+         <dc:format>application/vnd.ableton.folder</dc:format>
+         <ablFR:resource>folder</ablFR:resource>
+         <ablFR:platform>win</ablFR:platform>
+         <ablFR:items>
+            <rdf:Bag>
+               <rdf:li rdf:parseType="Resource">
+                  <ablFR:filePath>Template_Tension_scratch.als</ablFR:filePath>
+                  <ablFR:colors>
+                     <rdf:Bag>
+                        <rdf:li>5</rdf:li>
+                     </rdf:Bag>
+                  </ablFR:colors>
+               </rdf:li>
+            </rdf:Bag>
+         </ablFR:items>
+         <xmp:CreatorTool>Updated by Ableton Index 10.1</xmp:CreatorTool>
+         <xmp:CreateDate>2019-06-01T22:43:29-07:00</xmp:CreateDate>
+         <xmp:MetadataDate>2019-06-21T18:39:57-07:00</xmp:MetadataDate>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
