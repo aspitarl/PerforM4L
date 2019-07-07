@@ -17,19 +17,11 @@
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>UseCliptoTriggerScene.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>6</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Updated by Ableton Index 10.0.5</xmp:CreatorTool>
+         <xmp:CreatorTool>Updated by Ableton Index 10.1</xmp:CreatorTool>
          <xmp:CreateDate>2018-11-01T18:26:20-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2018-12-23T19:41:12-08:00</xmp:MetadataDate>
+         <xmp:MetadataDate>2019-07-07T14:27:21-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>

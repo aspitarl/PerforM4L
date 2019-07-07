@@ -10,34 +10,26 @@
          <ablFR:items>
             <rdf:Bag>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>HarmoChord J74_cust.amxd</ablFR:filePath>
+                  <ablFR:filePath>HC_Recv_cust.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
-                        <rdf:li>6</rdf:li>
+                        <rdf:li>5</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>HarmoChordBass J74_cust.amxd</ablFR:filePath>
+                  <ablFR:filePath>HC_Send_cust.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
-                        <rdf:li>6</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>HarmoTonicFilter J74_cust.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>6</rdf:li>
+                        <rdf:li>5</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
          <xmp:CreatorTool>Updated by Ableton Index 10.1</xmp:CreatorTool>
-         <xmp:CreateDate>2019-06-01T22:39:05-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2019-06-01T22:39:08-07:00</xmp:MetadataDate>
+         <xmp:CreateDate>2019-07-07T14:28:02-07:00</xmp:CreateDate>
+         <xmp:MetadataDate>2019-07-07T14:28:03-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
