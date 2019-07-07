@@ -10,22 +10,6 @@
          <ablFR:items>
             <rdf:Bag>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>Fishman_Glide.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>6</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>Fishman_HoldChord.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>6</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
                   <ablFR:filePath>Fishman_PBRange.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
@@ -37,7 +21,7 @@
          </ablFR:items>
          <xmp:CreatorTool>Updated by Ableton Index 10.1</xmp:CreatorTool>
          <xmp:CreateDate>2018-11-01T18:26-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2019-06-01T22:36:16-07:00</xmp:MetadataDate>
+         <xmp:MetadataDate>2019-07-07T16:33:40-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>

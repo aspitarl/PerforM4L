@@ -26,18 +26,26 @@
                   </ablFR:colors>
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>Glove Input.amxd</ablFR:filePath>
+                  <ablFR:filePath>Glove Relay.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
                         <rdf:li>6</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <ablFR:filePath>Glove Input.amxd</ablFR:filePath>
+                  <ablFR:colors>
+                     <rdf:Bag>
+                        <rdf:li>5</rdf:li>
+                     </rdf:Bag>
+                  </ablFR:colors>
+               </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Updated by Ableton Index 10.0.6</xmp:CreatorTool>
+         <xmp:CreatorTool>Updated by Ableton Index 10.1</xmp:CreatorTool>
          <xmp:CreateDate>2018-11-01T18:25:08-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2019-05-25T15:42:23-07:00</xmp:MetadataDate>
+         <xmp:MetadataDate>2019-07-07T16:34:38-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
