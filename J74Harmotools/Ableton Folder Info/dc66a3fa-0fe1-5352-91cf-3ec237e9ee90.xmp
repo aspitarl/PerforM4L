@@ -41,11 +41,27 @@
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <ablFR:filePath>HC_TonicFilter_glide.amxd</ablFR:filePath>
+                  <ablFR:colors>
+                     <rdf:Bag>
+                        <rdf:li>6</rdf:li>
+                     </rdf:Bag>
+                  </ablFR:colors>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <ablFR:filePath>HC_TonicFilter_cust.amxd</ablFR:filePath>
+                  <ablFR:colors>
+                     <rdf:Bag>
+                        <rdf:li>6</rdf:li>
+                     </rdf:Bag>
+                  </ablFR:colors>
+               </rdf:li>
             </rdf:Bag>
          </ablFR:items>
          <xmp:CreatorTool>Updated by Ableton Index 10.1.1</xmp:CreatorTool>
          <xmp:CreateDate>2019-07-07T14:28:02-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2019-10-01T22:28:18-07:00</xmp:MetadataDate>
+         <xmp:MetadataDate>2019-10-03T23:48:07-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
