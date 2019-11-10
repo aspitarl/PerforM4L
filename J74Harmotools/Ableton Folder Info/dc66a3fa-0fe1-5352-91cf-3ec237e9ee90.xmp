@@ -10,22 +10,6 @@
          <ablFR:items>
             <rdf:Bag>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>HC_Recv_cust.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>5</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>HC_Send_cust.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>5</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
                   <ablFR:filePath>HC_Bass_cust.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
@@ -59,9 +43,9 @@
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Updated by Ableton Index 10.1.1</xmp:CreatorTool>
+         <xmp:CreatorTool>Updated by Ableton Index 10.1.4</xmp:CreatorTool>
          <xmp:CreateDate>2019-07-07T14:28:02-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2019-10-03T23:48:07-07:00</xmp:MetadataDate>
+         <xmp:MetadataDate>2019-11-09T19:05:51-08:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
