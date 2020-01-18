@@ -2,13 +2,14 @@ from triad_openvr import triad_openvr
 import time
 import sys
 import rtmidi
+import os
 
 v = triad_openvr.triad_openvr()
 v.print_discovered_objects()
 
 
 
-range = {
+cube_ranges = {
     'x': {
         'min': 0.7,
         'max': 1.3
@@ -44,28 +45,73 @@ def extractxyz(data):
 
     return x, y, z
 
+def scale_data(data_raw, cube_ranges, dim):
+    length = cube_ranges[dim]['max'] - cube_ranges[dim]['min']
+    scaled = ((data_raw[dim]-cube_ranges[dim]['min'])/length)*outscale
+
+    if scaled < 0:
+        scaled = 0
+    elif scaled > outscale:
+        scaled = outscale
+
+    return scaled
+
+def scale_data_half(data_raw, cube_ranges, dim):
+    halflength = (cube_ranges[dim]['max'] - cube_ranges[dim]['min'])/2
+
+    data = data_raw[dim] - cube_ranges[dim]['min']
+
+    if data < halflength:
+        data = data
+    elif data > halflength:
+        data = (2*halflength) - data
+
+
+    scaled = (data/halflength)*outscale
+
+    if scaled < 0:
+        scaled = 0
+    elif scaled > outscale:
+        scaled = outscale
+
+    return scaled
+
+# if(yraw>halfwidth):
+#     y = int((width - yraw)*(scaley*2)-ybottom) ###Flipped
+# else:
+#     y = int(yraw*(scaley*2)-ybottom) ###Flipped
 
 
 while(True):
     start = time.time()
 
     contr = v.devices["controller_1"]
-    
-    trigger = contr.get_controller_inputs()['trigger']
 
-    if trigger == 1:
+    inputs = contr.get_controller_inputs()
+    
+    buttonpress = inputs['ulButtonPressed']
+    if buttonpress == 4:
         #enter range set mode
 
         data = contr.get_pose_euler()
         x, y, z = extractxyz(data)
 
-        range = {
-            'x': [x, x],
-            'y': [y, y],
-            'z': [z, z]
-        }        
+        cube_ranges = {
+            'x': {
+                'min': x,
+                'max': x
+            },
+            'y': {
+                'min': y,
+                'max': y
+            },
+            'z':  {
+                'min': z,
+                'max': z
+            }
+        }      
 
-        while(trigger):
+        while(buttonpress==4):
             data = contr.get_pose_euler()
             
 
@@ -74,14 +120,19 @@ while(True):
                 data_raw = {'x': x, 'y': y, 'z': z}
 
                 for dim in data_raw:
-                    if data_raw[dim] < range[dim]['min']:
-                        range[dim]['min'] = data_raw[dim]
-                    elif data_raw[dim] > range[dim]['max']:
-                        range[dim]['max'] = data_raw[dim]
+                    if data_raw[dim] < cube_ranges[dim]['min']:
+                        cube_ranges[dim]['min'] = data_raw[dim]
+                    elif data_raw[dim] > cube_ranges[dim]['max']:
+                        cube_ranges[dim]['max'] = data_raw[dim]
+
+
+            buttonpress = contr.get_controller_inputs()['ulButtonPressed']
 
     else:
         #normal mode
         data = contr.get_pose_euler()
+
+        trigger = inputs['trigger']
         
         if data is not None:
             
@@ -89,22 +140,18 @@ while(True):
             data_raw = {'x': x, 'y': y, 'z': z}
             
             for dim in data_raw:
-                length = range[dim]['max'] - range[dim]['min']
-                scaled = ((data_raw[dim]-range[dim]['min'])/range[dim]['max'])*outscale
 
-                if scaled < 0:
-                    scaled = 0
-                elif scaled > outscale:
-                    scaled = outscale
-
-                data_scaled[dim] = scaled
+                if (dim == 'y') and (trigger == 1):
+                    data_scaled[dim] = scale_data_half(data_raw, cube_ranges, dim)
+                else: 
+                    data_scaled[dim] = scale_data(data_raw, cube_ranges, dim)
 
 
-
+            os.system('cls')
             print('raw data')
-            print(data_raw)
+            print(data_raw['y'])
             print('scaled data')
-            print(data_scaled)
+            print(data_scaled['y'])
 
             # cc = [176, 23, y]
             # midiout.send_message(cc)
