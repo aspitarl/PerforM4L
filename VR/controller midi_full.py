@@ -4,8 +4,79 @@ import sys
 import rtmidi
 import os
 
+from IPython.display import clear_output
+
+
+interval = 1/250
+# interval = 0
+
+print('interval is ' + str(interval))
+
+
+
 v = triad_openvr.triad_openvr()
 v.print_discovered_objects()
+
+
+if len(sys.argv) == 1:
+    controller_name = "controller_1"
+elif len(sys.argv) == 2:
+    controller_name = "controller_" + str(sys.argv[1])
+
+
+contr = v.devices[controller_name]
+
+if controller_name == "controller_1":
+    cc_dict = {
+    'x': 22,
+    'y': 23,
+    'z': 24
+}
+
+    midiportname = 'Controller A'
+
+elif controller_name == "controller_2":
+    cc_dict = {
+    'x': 25,
+    'y': 26,
+    'z': 27
+}
+
+    midiportname = 'Controller B'
+
+print(controller_name)
+
+
+# # Import needed modules from osc4py3
+# from osc4py3.as_eventloop import *
+# from osc4py3 import oscbuildparse
+
+# # Start the system.
+# osc_startup()
+
+# # Make client channels to send packets.
+# osc_udp_client("127.0.0.1", 8000, "ableton")
+
+
+midiout = rtmidi.MidiOut()
+available_ports = midiout.get_ports()
+
+# here we're printing the ports to check that we see the one that loopMidi created. 
+# In the list we should see a port called "loopMIDI port".
+
+midi_connected = False
+
+for i, port in enumerate(available_ports):
+    if midiportname in port:
+        print('Connecting to midi port: ' + port)
+        midiout.open_port(i)
+        midi_connected = True
+
+
+if not midi_connected:
+    print('Could not find port ' + midiportname + ' in following midi ports')
+    print(available_ports)
+
 
 
 
@@ -39,9 +110,9 @@ data_scaled = {
 }
 
 def extractxyz(data):
-    x = abs(data[0])
-    y = abs(data[1])
-    z = abs(data[2])
+    x = data[0]
+    y = data[1]
+    z = data[2]
 
     return x, y, z
 
@@ -76,24 +147,35 @@ def scale_data_half(data_raw, cube_ranges, dim):
 
     return scaled
 
-# if(yraw>halfwidth):
-#     y = int((width - yraw)*(scaley*2)-ybottom) ###Flipped
-# else:
-#     y = int(yraw*(scaley*2)-ybottom) ###Flipped
+debug = True
 
-
-while(True):
+running = True
+while(running):
     start = time.time()
 
-    contr = v.devices["controller_1"]
+
 
     inputs = contr.get_controller_inputs()
+    if debug: debugstr = 'Inputs ' + str(inputs)
     
-    buttonpress = inputs['ulButtonPressed']
-    if buttonpress == 4:
+
+
+    if inputs['ulButtonPressed'] == 2:
         #enter range set mode
+        
+        
 
         data = contr.get_pose_euler()
+
+        
+        
+
+        while(data is None):
+            debugstr = debugstr + '\nGot None for data, trying again'
+            time.sleep(0.01)
+            data = contr.get_pose_euler()
+
+
         x, y, z = extractxyz(data)
 
         cube_ranges = {
@@ -111,9 +193,12 @@ while(True):
             }
         }      
 
-        while(buttonpress==4):
+        while(inputs['ulButtonPressed']==2):
+
+            if debug: debugstr = 'Range Set Mode: '
+            if debug: debugstr = debugstr + '\nPose: ' + str(data)
+
             data = contr.get_pose_euler()
-            
 
             if data is not None:
                 x, y, z = extractxyz(data)
@@ -125,13 +210,31 @@ while(True):
                     elif data_raw[dim] > cube_ranges[dim]['max']:
                         cube_ranges[dim]['max'] = data_raw[dim]
 
+                if debug: debugstr = debugstr + '\nRange: ' + str(cube_ranges)
+            
+            trigger = contr.get_controller_inputs()['trigger']
 
-            buttonpress = contr.get_controller_inputs()['ulButtonPressed']
+            if  trigger == 1:
+                #exit button
+                running = False
+
+            inputs = contr.get_controller_inputs()
+
+            sleep_time = interval-(time.time()-start)
+            if sleep_time>0:
+                # print('sleeping for ' + str(sleep_time))
+                time.sleep(sleep_time)
+                
+            if debug:
+                os.system('cls')
+                print(debugstr)
+                
 
     else:
         #normal mode
+        if debug: debugstr = debugstr + '\nNormal Mode:'
         data = contr.get_pose_euler()
-
+        if debug: debugstr = debugstr + '\nPose: ' + str(data)
         trigger = inputs['trigger']
         
         if data is not None:
@@ -147,11 +250,35 @@ while(True):
                     data_scaled[dim] = scale_data(data_raw, cube_ranges, dim)
 
 
-            os.system('cls')
-            print('raw data')
-            print(data_raw['y'])
-            print('scaled data')
-            print(data_scaled['y'])
+            if debug: debugstr = debugstr + '\nScaled Pose: ' + str(data_scaled)
 
-            # cc = [176, 23, y]
-            # midiout.send_message(cc)
+            # if inputs['grip_button']:
+            if inputs['trackpad_touched']:
+                ccx = [176, cc_dict['x'], data_scaled['x']]
+                midiout.send_message(ccx)            
+                ccy = [176, cc_dict['y'], data_scaled['y']]
+                midiout.send_message(ccy)                  
+                ccz = [176, cc_dict['z'], data_scaled['z']]
+                midiout.send_message(ccz)  
+
+                if debug: debugstr = debugstr + '\nCCx Message: ' + str(ccx)
+                if debug: debugstr = debugstr + '\nCCy Message: ' + str(ccy)
+                if debug: debugstr = debugstr + '\nCCz Message: ' + str(ccz)
+
+            # msg = oscbuildparse.OSCMessage("/test/me", None,  [data_scaled['y']])
+            # osc_send(msg, "ableton")
+
+            # osc_process()
+
+    sleep_time = interval-(time.time()-start)
+    if sleep_time>0:
+        time.sleep(sleep_time)
+        
+    if debug: 
+        os.system('cls')
+        print(debugstr)
+        
+
+
+
+midiout.close_port()
