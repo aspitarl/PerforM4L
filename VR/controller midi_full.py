@@ -4,15 +4,10 @@ import sys
 import rtmidi
 import os
 
-from IPython.display import clear_output
-
-
 interval = 1/250
 # interval = 0
 
-print('interval is ' + str(interval))
-
-
+print('wait interval is ' + str(interval))
 
 v = triad_openvr.triad_openvr()
 v.print_discovered_objects()
@@ -46,18 +41,6 @@ elif controller_name == "controller_2":
 
 print(controller_name)
 
-
-# # Import needed modules from osc4py3
-# from osc4py3.as_eventloop import *
-# from osc4py3 import oscbuildparse
-
-# # Start the system.
-# osc_startup()
-
-# # Make client channels to send packets.
-# osc_udp_client("127.0.0.1", 8000, "ableton")
-
-
 midiout = rtmidi.MidiOut()
 available_ports = midiout.get_ports()
 
@@ -76,9 +59,6 @@ for i, port in enumerate(available_ports):
 if not midi_connected:
     print('Could not find port ' + midiportname + ' in following midi ports')
     print(available_ports)
-
-
-
 
 cube_ranges = {
     'x': {
@@ -153,22 +133,15 @@ running = True
 while(running):
     start = time.time()
 
-
-
     inputs = contr.get_controller_inputs()
     if debug: debugstr = 'Inputs ' + str(inputs)
-    
 
+    rangesetbutton = inputs['ulButtonPressed']
 
-    if inputs['ulButtonPressed'] == 2:
-        #enter range set mode
-        
-        
+    if rangesetbutton == 2:
+        #enter range set mode     
 
         data = contr.get_pose_euler()
-
-        
-        
 
         while(data is None):
             debugstr = debugstr + '\nGot None for data, trying again'
@@ -193,7 +166,8 @@ while(running):
             }
         }      
 
-        while(inputs['ulButtonPressed']==2):
+        while(rangesetbutton==2):
+            rangesetbutton = inputs['ulButtonPressed']
 
             if debug: debugstr = 'Range Set Mode: '
             if debug: debugstr = debugstr + '\nPose: ' + str(data)
@@ -215,21 +189,20 @@ while(running):
             trigger = contr.get_controller_inputs()['trigger']
 
             if  trigger == 1:
-                #exit button
+                #exit button (have to fully pull trigger)
                 running = False
+                rangesetbutton = False
 
             inputs = contr.get_controller_inputs()
 
             sleep_time = interval-(time.time()-start)
             if sleep_time>0:
-                # print('sleeping for ' + str(sleep_time))
                 time.sleep(sleep_time)
                 
             if debug:
                 os.system('cls')
                 print(debugstr)
                 
-
     else:
         #normal mode
         if debug: debugstr = debugstr + '\nNormal Mode:'
@@ -252,7 +225,6 @@ while(running):
 
             if debug: debugstr = debugstr + '\nScaled Pose: ' + str(data_scaled)
 
-            # if inputs['grip_button']:
             if inputs['trackpad_touched']:
                 ccx = [176, cc_dict['x'], data_scaled['x']]
                 midiout.send_message(ccx)            
@@ -265,10 +237,6 @@ while(running):
                 if debug: debugstr = debugstr + '\nCCy Message: ' + str(ccy)
                 if debug: debugstr = debugstr + '\nCCz Message: ' + str(ccz)
 
-            # msg = oscbuildparse.OSCMessage("/test/me", None,  [data_scaled['y']])
-            # osc_send(msg, "ableton")
-
-            # osc_process()
 
     sleep_time = interval-(time.time()-start)
     if sleep_time>0:
@@ -278,7 +246,5 @@ while(running):
         os.system('cls')
         print(debugstr)
         
-
-
 
 midiout.close_port()
