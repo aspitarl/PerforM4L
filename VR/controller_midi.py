@@ -127,19 +127,23 @@ def scale_data_half(data_raw, cube_ranges, dim):
 
     return scaled
 
-debug = True
+# debug = True
 
 running = True
 while(running):
     start = time.time()
 
     inputs = contr.get_controller_inputs()
-    if debug: debugstr = 'Inputs ' + str(inputs)
+
+    debug=True if inputs['grip_button'] else False #a button. note that this also correponds to grip button. can't figure out a way to distinguish.
+    if debug: 
+        debugstr = 'Controller: ' + controller_name + '\nMidi Port Name: ' + midiportname + '\nInputs ' + str(inputs)
 
     rangesetbutton = inputs['ulButtonPressed']
 
     if rangesetbutton == 2:
-        #enter range set mode     
+        #enter range set mode
+           
 
         data = contr.get_pose_euler()
 
@@ -167,6 +171,7 @@ while(running):
         }      
 
         while(rangesetbutton==2):
+            debug = True  
             rangesetbutton = inputs['ulButtonPressed']
 
             if debug: debugstr = 'Range Set Mode: '
@@ -198,8 +203,9 @@ while(running):
             sleep_time = interval-(time.time()-start)
             if sleep_time>0:
                 time.sleep(sleep_time)
-                
+            
             if debug:
+                #not working in anaconda prompt?
                 os.system('cls')
                 print(debugstr)
                 
