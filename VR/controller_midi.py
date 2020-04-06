@@ -75,11 +75,6 @@ cube_ranges = {
     }
 }
 
-data_raw = {
-    'x': 1,
-    'y': 1,
-    'z': 1
-}
 
 outscale = 127
 
@@ -89,12 +84,7 @@ data_scaled = {
     'z': outscale/2
 }
 
-def extractxyz(data):
-    x = data[0]
-    y = data[1]
-    z = data[2]
 
-    return x, y, z
 
 def scale_data(data_raw, cube_ranges, dim):
     length = cube_ranges[dim]['max'] - cube_ranges[dim]['min']
@@ -128,54 +118,36 @@ def scale_data_half(data_raw, cube_ranges, dim):
     return scaled
 
 def range_set_mode(contr, debugstr=''):
-    data = contr.get_pose_euler()
-
-    while(data is None):
-        debugstr = debugstr + '\nGot None for data, trying again'
-        time.sleep(0.01)
-        data = contr.get_pose_euler()
-
-
-    x, y, z = extractxyz(data)
+    inputs, pose = get_inputs_and_pose(contr)
 
     cube_ranges = {
         'x': {
-            'min': x,
-            'max': x
+            'min': pose['x'],
+            'max': pose['x']
         },
         'y': {
-            'min': y,
-            'max': y
+            'min': pose['y'],
+            'max': pose['y']
         },
         'z':  {
-            'min': z,
-            'max': z
+            'min': pose['z'],
+            'max': pose['z']
         }
     }      
 
+    while(inputs['button'] == 'b'): 
 
-    rangesetbutton = 2
-    while(rangesetbutton==2):
-        debug = True  
-
-        inputs = contr.get_controller_inputs()
-
-        rangesetbutton = inputs['ulButtonPressed']
+        inputs, pose = get_inputs_and_pose(contr)
 
         if debug: debugstr = 'Range Set Mode: '
-        if debug: debugstr = debugstr + '\nPose: ' + str(data)
+        if debug: debugstr = debugstr + '\nPose: ' + str(pose)
 
-        data = contr.get_pose_euler()
-
-        if data is not None:
-            x, y, z = extractxyz(data)
-            data_raw = {'x': x, 'y': y, 'z': z}
-
-            for dim in data_raw:
-                if data_raw[dim] < cube_ranges[dim]['min']:
-                    cube_ranges[dim]['min'] = data_raw[dim]
-                elif data_raw[dim] > cube_ranges[dim]['max']:
-                    cube_ranges[dim]['max'] = data_raw[dim]
+        if pose is not None:
+            for dim in pose:
+                if pose[dim] < cube_ranges[dim]['min']:
+                    cube_ranges[dim]['min'] = pose[dim]
+                elif pose[dim] > cube_ranges[dim]['max']:
+                    cube_ranges[dim]['max'] = pose[dim]
 
             if debug: debugstr = debugstr + '\nRange: ' + str(cube_ranges)
         
@@ -197,41 +169,61 @@ def range_set_mode(contr, debugstr=''):
 
     return cube_ranges
     
+def get_inputs_and_pose(contr):
+
+    #Pose
+    positionarray = contr.get_pose_euler()
+
+    if positionarray == None:
+        pose = None
+    else:
+        x = positionarray[0]
+        y = positionarray[1]
+        z = positionarray[2]
+
+        pose = {'x': x, 'y': y, 'z': z}
+
+    #Inputs
+    inputs = contr.get_controller_inputs()
+
+    button= inputs['ulButtonPressed']
+    
+    if button==2 or button==6:
+        inputs['button'] = 'b'
+    elif button == 4:
+        inputs['button'] = 'a'
+    else:
+        inputs['button'] = None
+
+    return inputs, pose
+
+debug = True
+
 
 running = True
 while(running):
     start = time.time()
 
-    inputs = contr.get_controller_inputs()
+    inputs, pose = get_inputs_and_pose(contr)
 
-    debug=True if inputs['grip_button'] else False #a button. note that this also correponds to grip button. can't figure out a way to distinguish.
     if debug: 
         debugstr = 'Controller: ' + controller_name + '\nMidi Port Name: ' + midiportname + '\nInputs ' + str(inputs)
 
-    rangesetbutton = inputs['ulButtonPressed']
-
-    if rangesetbutton == 2:
+    if inputs['button'] == 'b':
         #enter range set mode
         cube_ranges = range_set_mode(contr, debugstr)
     else:
         #normal mode
         if debug: debugstr = debugstr + '\nNormal Mode:'
-        data = contr.get_pose_euler()
-        if debug: debugstr = debugstr + '\nPose: ' + str(data)
+        if debug: debugstr = debugstr + '\nPose: ' + str(pose)
         trigger = inputs['trigger']
         
-        if data is not None:
-            
-            x, y, z = extractxyz(data)
-            data_raw = {'x': x, 'y': y, 'z': z}
-            
-            for dim in data_raw:
-
+        if pose is not None:   
+            for dim in pose:
                 if (dim == 'y') and (trigger == 1):
-                    data_scaled[dim] = scale_data_half(data_raw, cube_ranges, dim)
+                    data_scaled[dim] = scale_data_half(pose, cube_ranges, dim)
                 else: 
-                    data_scaled[dim] = scale_data(data_raw, cube_ranges, dim)
-
+                    data_scaled[dim] = scale_data(pose, cube_ranges, dim)
 
             if debug: debugstr = debugstr + '\nScaled Pose: ' + str(data_scaled)
 
