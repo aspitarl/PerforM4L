@@ -3,6 +3,7 @@ import time
 import sys
 import rtmidi
 import os
+import signal
 
 interval = 1/250
 # interval = 0
@@ -39,10 +40,16 @@ elif controller_name == "controller_2":
 
     midiportname = 'Controller B'
 
-
-
 midiout = rtmidi.MidiOut()
 available_ports = midiout.get_ports()
+
+def signal_handler(signal, frame):
+    """Runs and exits when crtl-C is pressed"""
+    print("\nprogram exiting gracefully")
+    midiout.close_port()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 # here we're printing the ports to check that we see the one that loopMidi created. 
 # In the list we should see a port called "loopMIDI port".
@@ -55,26 +62,15 @@ for i, port in enumerate(available_ports):
         midiout.open_port(i)
         midi_connected = True
 
-
 if not midi_connected:
     print('Could not find port ' + midiportname + ' in following midi ports')
     print(available_ports)
 
 cube_ranges = {
-    'x': {
-        'min': 0.7,
-        'max': 1.3
-    },
-    'y': {
-        'min': 0.7,
-        'max': 1.3
-    },
-    'z':  {
-        'min': 0.7,
-        'max': 1.3
-    }
+    'x': {'min': 0.7, 'max': 1.3},
+    'y': {'min': 0.7, 'max': 1.3},
+    'z': {'min': 0.7, 'max': 1.3}
 }
-
 
 outscale = 127
 
@@ -83,8 +79,6 @@ data_scaled = {
     'y': outscale/2,
     'z': outscale/2
 }
-
-
 
 def scale_data(data_raw, cube_ranges, dim):
     length = cube_ranges[dim]['max'] - cube_ranges[dim]['min']
@@ -107,7 +101,6 @@ def scale_data_half(data_raw, cube_ranges, dim):
     elif data > halflength:
         data = (2*halflength) - data
 
-
     scaled = (data/halflength)*outscale
 
     if scaled < 0:
@@ -121,22 +114,12 @@ def range_set_mode(contr, debugstr=''):
     inputs, pose = get_inputs_and_pose(contr)
 
     cube_ranges = {
-        'x': {
-            'min': pose['x'],
-            'max': pose['x']
-        },
-        'y': {
-            'min': pose['y'],
-            'max': pose['y']
-        },
-        'z':  {
-            'min': pose['z'],
-            'max': pose['z']
-        }
+        'x': {'min': pose['x'], 'max': pose['x']},
+        'y': {'min': pose['y'], 'max': pose['y']},
+        'z': {'min': pose['z'], 'max': pose['z']}
     }      
 
-    while(inputs['button'] == 'b'): 
-
+    while(inputs['button'] == 'b'):
         inputs, pose = get_inputs_and_pose(contr)
 
         if debug: debugstr = 'Range Set Mode: '
@@ -177,11 +160,11 @@ def get_inputs_and_pose(contr):
     if positionarray == None:
         pose = None
     else:
-        x = positionarray[0]
-        y = positionarray[1]
-        z = positionarray[2]
-
-        pose = {'x': x, 'y': y, 'z': z}
+        pose = {
+            'x': positionarray[0],
+            'y': positionarray[1],
+            'z': positionarray[2]
+            }
 
     #Inputs
     inputs = contr.get_controller_inputs()
@@ -198,8 +181,6 @@ def get_inputs_and_pose(contr):
     return inputs, pose
 
 debug = True
-
-
 running = True
 while(running):
     start = time.time()
@@ -249,4 +230,3 @@ while(running):
         print(debugstr)
         
 
-midiout.close_port()
