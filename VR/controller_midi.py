@@ -80,9 +80,22 @@ data_scaled = {
     'z': outscale/2
 }
 
-def scale_data(data_raw, cube_ranges, dim):
+def scale_data(data_raw, cube_ranges, dim, half):
+
     length = cube_ranges[dim]['max'] - cube_ranges[dim]['min']
-    scaled = ((data_raw[dim]-cube_ranges[dim]['min'])/length)*outscale
+    relative_dist = data_raw[dim] - cube_ranges[dim]['min']
+
+    if half:
+        halflength = length/2
+
+        if relative_dist < halflength:
+            relative_dist = relative_dist
+        elif relative_dist > halflength:
+            relative_dist = length - relative_dist
+
+        scaled = (relative_dist/halflength)*outscale  
+    else:  
+        scaled = (relative_dist/length)*outscale
 
     if scaled < 0:
         scaled = 0
@@ -91,24 +104,6 @@ def scale_data(data_raw, cube_ranges, dim):
 
     return scaled
 
-def scale_data_half(data_raw, cube_ranges, dim):
-    halflength = (cube_ranges[dim]['max'] - cube_ranges[dim]['min'])/2
-
-    data = data_raw[dim] - cube_ranges[dim]['min']
-
-    if data < halflength:
-        data = data
-    elif data > halflength:
-        data = (2*halflength) - data
-
-    scaled = (data/halflength)*outscale
-
-    if scaled < 0:
-        scaled = 0
-    elif scaled > outscale:
-        scaled = outscale
-
-    return scaled
 
 def range_set_mode(contr, debugstr=''):
     inputs, pose = get_inputs_and_pose(contr)
@@ -202,9 +197,9 @@ while(running):
         if pose is not None:   
             for dim in pose:
                 if (dim == 'y') and (trigger == 1):
-                    data_scaled[dim] = scale_data_half(pose, cube_ranges, dim)
+                    data_scaled[dim] = scale_data(pose, cube_ranges, dim, half=True)
                 else: 
-                    data_scaled[dim] = scale_data(pose, cube_ranges, dim)
+                    data_scaled[dim] = scale_data(pose, cube_ranges, dim, half=False)
 
             if debug: debugstr = debugstr + '\nScaled Pose: ' + str(data_scaled)
 
