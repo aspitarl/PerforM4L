@@ -5,6 +5,8 @@ import rtmidi
 import os
 import signal
 
+from rtmidi.midiconstants import CONTROL_CHANGE, PITCH_BEND
+
 interval = 1/250
 # interval = 0
 
@@ -80,6 +82,10 @@ data_scaled = {
     'z': outscale/2
 }
 
+rangesetbutton = 'b'
+senddatabutton = 'a'
+
+
 def scale_data(data_raw, cube_ranges, dim, half):
 
     length = cube_ranges[dim]['max'] - cube_ranges[dim]['min']
@@ -114,7 +120,7 @@ def range_set_mode(contr, debugstr=''):
         'z': {'min': pose['z'], 'max': pose['z']}
     }      
 
-    while(inputs['button'] == 'b'):
+    while(inputs['button'] == rangesetbutton):
         inputs, pose = get_inputs_and_pose(contr)
 
         if debug: debugstr = 'Range Set Mode: '
@@ -128,13 +134,6 @@ def range_set_mode(contr, debugstr=''):
                     cube_ranges[dim]['max'] = pose[dim]
 
             if debug: debugstr = debugstr + '\nRange: ' + str(cube_ranges)
-        
-        #Old code for exiting
-        # trigger = inputs['trigger']
-        # if  trigger == 1:
-        #     #exit button (have to fully pull trigger)
-        #     running = False
-        #     rangesetbutton = False
 
         sleep_time = interval-(time.time()-start)
         if sleep_time>0:
@@ -148,7 +147,6 @@ def range_set_mode(contr, debugstr=''):
     return cube_ranges
     
 def get_inputs_and_pose(contr):
-
     #Pose
     positionarray = contr.get_pose_euler()
 
@@ -164,11 +162,10 @@ def get_inputs_and_pose(contr):
     #Inputs
     inputs = contr.get_controller_inputs()
 
-    button= inputs['ulButtonPressed']
-    
-    if button==2 or button==6:
+    #Convert weird button number system into something simpler
+    if inputs['ulButtonPressed']==2 or inputs['ulButtonPressed']==6:
         inputs['button'] = 'b'
-    elif button == 4:
+    elif inputs['ulButtonPressed'] == 4:
         inputs['button'] = 'a'
     else:
         inputs['button'] = None
@@ -185,7 +182,7 @@ while(running):
     if debug: 
         debugstr = 'Controller: ' + controller_name + '\nMidi Port Name: ' + midiportname + '\nInputs ' + str(inputs)
 
-    if inputs['button'] == 'b':
+    if inputs['button'] == rangesetbutton:
         #enter range set mode
         cube_ranges = range_set_mode(contr, debugstr)
     else:
@@ -203,12 +200,12 @@ while(running):
 
             if debug: debugstr = debugstr + '\nScaled Pose: ' + str(data_scaled)
 
-            if inputs['trackpad_touched']:
-                ccx = [176, cc_dict['x'], data_scaled['x']]
+            if inputs['button'] == senddatabutton:
+                ccx = [CONTROL_CHANGE, cc_dict['x'], data_scaled['x']]
                 midiout.send_message(ccx)            
-                ccy = [176, cc_dict['y'], data_scaled['y']]
+                ccy = [CONTROL_CHANGE, cc_dict['y'], data_scaled['y']]
                 midiout.send_message(ccy)                  
-                ccz = [176, cc_dict['z'], data_scaled['z']]
+                ccz = [CONTROL_CHANGE, cc_dict['z'], data_scaled['z']]
                 midiout.send_message(ccz)  
 
                 if debug: debugstr = debugstr + '\nCCx Message: ' + str(ccx)
