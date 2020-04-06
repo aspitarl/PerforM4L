@@ -174,6 +174,8 @@ def get_inputs_and_pose(contr):
 
 debug = True
 running = True
+
+pitchbend_reset = False #used to reset pitchbend after letting go of touchpad
 while(running):
     start = time.time()
 
@@ -200,7 +202,7 @@ while(running):
 
             if debug: debugstr = debugstr + '\nScaled Pose: ' + str(data_scaled)
 
-            if inputs['button'] == senddatabutton:
+            if inputs['button'] == senddatabutton or inputs['trackpad_touched']:
                 ccx = [CONTROL_CHANGE, cc_dict['x'], data_scaled['x']]
                 midiout.send_message(ccx)            
                 ccy = [CONTROL_CHANGE, cc_dict['y'], data_scaled['y']]
@@ -211,6 +213,20 @@ while(running):
                 if debug: debugstr = debugstr + '\nCCx Message: ' + str(ccx)
                 if debug: debugstr = debugstr + '\nCCy Message: ' + str(ccy)
                 if debug: debugstr = debugstr + '\nCCz Message: ' + str(ccz)
+
+                if inputs['trackpad_touched']:
+                    pb = int(inputs['trackpad_y']*64+64)
+                    pb = [PITCH_BEND, 0 , pb]
+                    midiout.send_message(pb)
+
+                    if debug: debugstr = debugstr + '\npb Message: ' + str(pb)
+                    pitchbend_reset = True
+            else:
+                if pitchbend_reset:
+                    pb = [PITCH_BEND, 0 , 64]
+                    midiout.send_message(pb)
+                    pitchbend_reset = False
+                    
 
 
     sleep_time = interval-(time.time()-start)
