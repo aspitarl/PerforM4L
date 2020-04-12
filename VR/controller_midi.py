@@ -121,6 +121,8 @@ def range_set_mode(contr, debugstr=''):
     }      
 
     while(inputs['button'] == rangesetbutton):
+        debugstr = ''
+
         inputs, pose = get_inputs_and_pose(contr)
 
         if debug: debugstr = 'Range Set Mode: '
@@ -172,7 +174,7 @@ def get_inputs_and_pose(contr):
 
     return inputs, pose
 
-debug = True
+debug = False
 running = True
 
 pitchbend_reset = False #used to reset pitchbend after letting go of touchpad
@@ -186,7 +188,7 @@ while(running):
 
     if inputs['button'] == rangesetbutton:
         #enter range set mode
-        cube_ranges = range_set_mode(contr, debugstr)
+        cube_ranges = range_set_mode(contr)
     else:
         #normal mode
         if debug: debugstr = debugstr + '\nNormal Mode:'
