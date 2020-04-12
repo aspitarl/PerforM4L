@@ -24,20 +24,24 @@ elif len(sys.argv) == 2:
 print("connecting to " + controller_name)
 contr = v.devices[controller_name]
 
+#TODO: Figure out whether these dicts should be same or different (stress test 1 midi channel...)
+
 if controller_name == "controller_1":
     cc_dict = {
     'x': 22,
     'y': 23,
-    'z': 24
+    'z': 24,
+    'tpy':25,
 }
 
     midiportname = 'Controller A'
 
 elif controller_name == "controller_2":
     cc_dict = {
-    'x': 25,
-    'y': 26,
-    'z': 27
+    'x': 22,
+    'y': 23,
+    'z': 24,
+    'tpy':25,
 }
 
     midiportname = 'Controller B'
@@ -167,7 +171,7 @@ def get_inputs_and_pose(contr):
     #Convert weird button number system into something simpler
     if inputs['ulButtonPressed']==2 or inputs['ulButtonPressed']==6:
         inputs['button'] = 'b'
-    elif inputs['ulButtonPressed'] == 4:
+    elif inputs['grip_button'] == True: # inputs['ulButtonPressed'] == 4 not true when trigger
         inputs['button'] = 'a'
     else:
         inputs['button'] = None
@@ -177,7 +181,7 @@ def get_inputs_and_pose(contr):
 debug = False
 running = True
 
-pitchbend_reset = False #used to reset pitchbend after letting go of touchpad
+trackpad_reset = False #used to reset pitchbend after letting go of touchpad
 while(running):
     start = time.time()
 
@@ -217,17 +221,22 @@ while(running):
                 if debug: debugstr = debugstr + '\nCCz Message: ' + str(ccz)
 
                 if inputs['trackpad_touched']:
-                    pb = int(inputs['trackpad_y']*64+64)
-                    pb = [PITCH_BEND, 0 , pb]
-                    midiout.send_message(pb)
+                    tpy = int(inputs['trackpad_y']*64+64)
 
-                    if debug: debugstr = debugstr + '\npb Message: ' + str(pb)
-                    pitchbend_reset = True
+                    cctpy = [CONTROL_CHANGE, cc_dict['tpy'], tpy]
+                    midiout.send_message(cctpy)  
+
+
+                    # pb = [PITCH_BEND, 0 , pb]
+                    # midiout.send_message(pb)
+
+                    # if debug: debugstr = debugstr + '\npb Message: ' + str(pb)
+                    trackpad_reset = True
             else:
-                if pitchbend_reset:
-                    pb = [PITCH_BEND, 0 , 64]
-                    midiout.send_message(pb)
-                    pitchbend_reset = False
+                if trackpad_reset:
+                    cctpy = [CONTROL_CHANGE, cc_dict['tpy'], 64]
+                    midiout.send_message(cctpy)
+                    trackpad_reset = False
                     
 
 
