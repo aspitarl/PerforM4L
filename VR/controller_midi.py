@@ -223,12 +223,13 @@ while(running):
                 if inputs['trackpad_touched']:
                     tpy = int(inputs['trackpad_y']*64+64)
 
-                    cctpy = [CONTROL_CHANGE, cc_dict['tpy'], tpy]
-                    midiout.send_message(cctpy)  
+                    # cctpy = [CONTROL_CHANGE, cc_dict['tpy'], tpy]
+                    # midiout.send_message(cctpy)  
 
 
-                    # pb = [PITCH_BEND, 0 , pb]
-                    # midiout.send_message(pb)
+                    pb = tpy
+                    pb = [PITCH_BEND, 0 , pb]
+                    midiout.send_message(pb)
 
                     # if debug: debugstr = debugstr + '\npb Message: ' + str(pb)
                     trackpad_reset = True
