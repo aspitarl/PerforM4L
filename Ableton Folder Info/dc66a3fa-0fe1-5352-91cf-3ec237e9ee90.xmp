@@ -14,15 +14,13 @@
                   <ablFR:colors>
                      <rdf:Bag>
                         <rdf:li>5</rdf:li>
-                        <rdf:li>7</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Updated by Ableton Index 10.1.18</xmp:CreatorTool>
-         <xmp:CreateDate>2020-05-25T21:08:09-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2020-10-10T15:24:03-07:00</xmp:MetadataDate>
+         <xmp:CreatorTool>Ableton Index 10.1.25</xmp:CreatorTool>
+         <xmp:CreateDate>2020-10-10T17:45:51-07:00</xmp:CreateDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
