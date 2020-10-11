@@ -10,34 +10,42 @@
          <ablFR:items>
             <rdf:Bag>
                <rdf:li rdf:parseType="Resource">
+                  <ablFR:filePath>Fishman_ChainReciever.amxd</ablFR:filePath>
+                  <ablFR:colors>
+                     <rdf:Bag>
+                        <rdf:li>5</rdf:li>
+                     </rdf:Bag>
+                  </ablFR:colors>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <ablFR:filePath>Fishman_ChainController.amxd</ablFR:filePath>
+                  <ablFR:colors>
+                     <rdf:Bag>
+                        <rdf:li>5</rdf:li>
+                     </rdf:Bag>
+                  </ablFR:colors>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
                   <ablFR:filePath>Fishman_PBRange.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
-                        <rdf:li>6</rdf:li>
+                        <rdf:li>5</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>Fishman string route rack.adg</ablFR:filePath>
+                  <ablFR:filePath>Fishman_String_Router.amxd</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
-                        <rdf:li>6</rdf:li>
-                     </rdf:Bag>
-                  </ablFR:colors>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <ablFR:filePath>Fishman_MidiGate.amxd</ablFR:filePath>
-                  <ablFR:colors>
-                     <rdf:Bag>
-                        <rdf:li>6</rdf:li>
+                        <rdf:li>5</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Updated by Ableton Index 10.1.7</xmp:CreatorTool>
-         <xmp:CreateDate>2020-08-04T21:46:55-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2020-08-07T17:10:07-07:00</xmp:MetadataDate>
+         <xmp:CreatorTool>Updated by Ableton Index 10.1.18</xmp:CreatorTool>
+         <xmp:CreateDate>2020-10-10T16:03:48-07:00</xmp:CreateDate>
+         <xmp:MetadataDate>2020-10-10T16:04:01-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
