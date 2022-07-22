@@ -1,122 +1,14 @@
 {
-  "Row 0": {
+  "Bank 3": {
     "1": "Trigger Previous Scene",
     "2": "Trigger Current Scene",
     "3": "Trigger Next Scene",
-    "4": "Tension Start",
-    "5": "Tension Cancel",
-    "6": "Go To Tension",
+    "4": "Nothing",
+    "5": "Nothing",
+    "6": "Nothing",
     "7": "Disarm All Tracks",
     "8": "Disable Clips of Armed Tracks",
     "9": "Disable Notes of Armed Tracks",
     "10": "Disable Auto Scene Select"
-  },
-  "Row 1": {
-    "1": "Preset 1",
-    "2": "Preset 2",
-    "3": "Preset 3",
-    "4": "Preset 4",
-    "5": "Preset 5",
-    "6": "Preset 6",
-    "7": "Preset 7",
-    "8": "Preset 8",
-    "9": "Reset Track Paths",
-    "10": "Save Preset"
-  },
-  "Row 2": {
-    "1": "Map Foot Pedal 1",
-    "2": "Map Foot Pedal 2",
-    "3": "Map Glove X",
-    "4": "Map Glove Y",
-    "5": "Map Glove Z",
-    "6": "UnMap Foot Pedal 1",
-    "7": "UnMap Foot Pedal 2",
-    "8": "UnMap Glove X",
-    "9": "UnMap Glove Y",
-    "10": "UnMap Glove Z"
-  },
-  "Row 3": {
-    "1": "Nothing",
-    "2": "Nothing",
-    "3": "Nothing",
-    "4": "Nothing",
-    "5": "Nothing",
-    "6": "Nothing",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Nothing",
-    "10": "Nothing"
-  },
-  "Row 4": {
-    "1": "Nothing",
-    "2": "Nothing",
-    "3": "Nothing",
-    "4": "Nothing",
-    "5": "Nothing",
-    "6": "Nothing",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Nothing",
-    "10": "Nothing"
-  },
-  "Row 5": {
-    "1": "Nothing",
-    "2": "Nothing",
-    "3": "Nothing",
-    "4": "Nothing",
-    "5": "Nothing",
-    "6": "Nothing",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Nothing",
-    "10": "Nothing"
-  },
-  "Row 6": {
-    "1": "Nothing",
-    "2": "Nothing",
-    "3": "Nothing",
-    "4": "Nothing",
-    "5": "Nothing",
-    "6": "Nothing",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Nothing",
-    "10": "Nothing"
-  },
-  "Row 7": {
-    "1": "Nothing",
-    "2": "Nothing",
-    "3": "Nothing",
-    "4": "Nothing",
-    "5": "Nothing",
-    "6": "Nothing",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Nothing",
-    "10": "Nothing"
-  },
-  "Row 8": {
-    "1": "Fishman Hold Unknown",
-    "2": "Fishman Hold Unknown",
-    "3": "Fishman Hold Unknown",
-    "4": "Fishman Hold Unknown",
-    "5": "Nothing",
-    "6": "Nothing",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Nothing",
-    "10": "Nothing"
-  },
-  "Row 9": {
-    "1": "Select Adjacent Track -4",
-    "2": "Select Adjacent Track -3",
-    "3": "Select Adjacent Track -2",
-    "4": "Select Adjacent Track -1",
-    "5": "Select This Track",
-    "6": "Select Adjacent Track +1",
-    "7": "Nothing",
-    "8": "Nothing",
-    "9": "Select 1st Track in Set",
-    "10": "Select Armed Tracks"
   }
 }
