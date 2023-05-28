@@ -13,14 +13,14 @@
                   <ablFR:filePath>Template_Fishman_Input.als</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
-                        <rdf:li>5</rdf:li>
+                        <rdf:li>7</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Ableton Index 10.1.18</xmp:CreatorTool>
-         <xmp:CreateDate>2020-10-10T15:37:15-07:00</xmp:CreateDate>
+         <xmp:CreatorTool>Ableton Index 11.3.2</xmp:CreatorTool>
+         <xmp:CreateDate>2023-05-27T17:55:52-07:00</xmp:CreateDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>

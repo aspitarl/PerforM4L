@@ -13,14 +13,15 @@
                   <ablFR:filePath>Note Sender.adg</ablFR:filePath>
                   <ablFR:colors>
                      <rdf:Bag>
-                        <rdf:li>5</rdf:li>
+                        <rdf:li>7</rdf:li>
                      </rdf:Bag>
                   </ablFR:colors>
                </rdf:li>
             </rdf:Bag>
          </ablFR:items>
-         <xmp:CreatorTool>Ableton Index 11.0.12</xmp:CreatorTool>
-         <xmp:CreateDate>2021-12-03T18:23:34-08:00</xmp:CreateDate>
+         <xmp:CreatorTool>Updated by Ableton Index 11.3.2</xmp:CreatorTool>
+         <xmp:CreateDate>2023-05-27T17:55:50-07:00</xmp:CreateDate>
+         <xmp:MetadataDate>2023-05-27T19:33:37-07:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
