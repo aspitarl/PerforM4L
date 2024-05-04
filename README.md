@@ -52,20 +52,11 @@ Patches to control visual things to music. One patch controls Adafruit Neopixels
 
 This library includes original M4L devices, but also M4L devices pulled from the internet that I tweaked and altered: 
 
-Transpose MMC 1.0
-Author:	Because789
-License (more info):	None
-http://www.maxforlive.com/library/device/1852/transpose-mmc
-
 Chords 2.11
 Author:	lilTrybe
 License (more info):	None
 http://www.maxforlive.com/library/device/2885/chords
 
-V-Module
-Author:	Fabrizio Poce
-Creative Common “No Derivative Works” licence
-http://fabriziopoce.com/max.html
 
 Mapping: Not really sure where I got this from but includes "core by christian kleine, thanks for that!"
 http://christiankleine.com/ck/home.html
