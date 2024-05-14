@@ -75,150 +75,150 @@ INIT_FCB =
    Pedal 2 = PedalB 
 }
 
-EFFECT_ON e0 = SendMidi DEVICE CtrlChange 64 127
-EFFECT_OFF e0 = SendMidi DEVICE CtrlChange 64 0
+EFFECT_ON e0 = SendMidi DEVICE CtrlChange 14 127
+EFFECT_OFF e0 = SendMidi DEVICE CtrlChange 14 0
 
-EFFECT_ON e1 = SendMidi DEVICE CtrlChange 65 127
-EFFECT_OFF e1 = SendMidi DEVICE CtrlChange 65 0
+EFFECT_ON e1 = SendMidi DEVICE CtrlChange 15 127
+EFFECT_OFF e1 = SendMidi DEVICE CtrlChange 15 0
 
-EFFECT_ON e2 = SendMidi DEVICE CtrlChange 66 127
-EFFECT_OFF e2 = SendMidi DEVICE CtrlChange 66 0
+EFFECT_ON e2 = SendMidi DEVICE CtrlChange 16 127
+EFFECT_OFF e2 = SendMidi DEVICE CtrlChange 16 0
 
-EFFECT_ON e3 = SendMidi DEVICE CtrlChange 67 127
-EFFECT_OFF e3 = SendMidi DEVICE CtrlChange 67 0
+EFFECT_ON e3 = SendMidi DEVICE CtrlChange 17 127
+EFFECT_OFF e3 = SendMidi DEVICE CtrlChange 17 0
 
-EFFECT_ON e4 = SendMidi DEVICE CtrlChange 68 127
-EFFECT_OFF e4 = SendMidi DEVICE CtrlChange 68 0
+EFFECT_ON e4 = SendMidi DEVICE CtrlChange 18 127
+EFFECT_OFF e4 = SendMidi DEVICE CtrlChange 18 0
 
 Preset 0 =
 {   
-			SendMidi DEVICE CtrlChange 64 127
+			SendMidi DEVICE CtrlChange 14 127
 }
 
 Preset 1 =
 {   
-   		SendMidi DEVICE CtrlChange 65 127
+   		SendMidi DEVICE CtrlChange 15 127
 }
 
 Preset 2 =
 {   
-			SendMidi DEVICE CtrlChange 66 127
+			SendMidi DEVICE CtrlChange 16 127
 }
 
 Preset 3 =
 {   
-         SendMidi DEVICE CtrlChange 67 127
+         SendMidi DEVICE CtrlChange 17 127
 }
 
 Preset 4 =
 {   
-         SendMidi DEVICE CtrlChange 68 127
+         SendMidi DEVICE CtrlChange 18 127
 
 }
 
 Preset 5 =
 {   
-         SendMidi DEVICE CtrlChange 64 127
+         SendMidi DEVICE CtrlChange 14 127
    		Wait 1
-     		SendMidi DEVICE CtrlChange 65 0
+     		SendMidi DEVICE CtrlChange 15 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 66 0
+			SendMidi DEVICE CtrlChange 16 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 67 0
+			SendMidi DEVICE CtrlChange 17 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 68 0
+			SendMidi DEVICE CtrlChange 18 0
 }
 
 Preset 6 =
 {   
-     		SendMidi DEVICE CtrlChange 65 127
+     		SendMidi DEVICE CtrlChange 15 127
    		Wait 1   		
-         SendMidi DEVICE CtrlChange 64 0
+         SendMidi DEVICE CtrlChange 14 0
    		Wait 1
 
-			SendMidi DEVICE CtrlChange 66 0
+			SendMidi DEVICE CtrlChange 16 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 67 0
+			SendMidi DEVICE CtrlChange 17 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 68 0
+			SendMidi DEVICE CtrlChange 18 0
 }
 
 Preset 7 =
 {
-			SendMidi DEVICE CtrlChange 66 127
+			SendMidi DEVICE CtrlChange 16 127
    		Wait 1
-         SendMidi DEVICE CtrlChange 64 0
+         SendMidi DEVICE CtrlChange 14 0
    		Wait 1
-     		SendMidi DEVICE CtrlChange 65 0
+     		SendMidi DEVICE CtrlChange 15 0
    		Wait 1
 
-			SendMidi DEVICE CtrlChange 67 0
+			SendMidi DEVICE CtrlChange 17 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 68 0
+			SendMidi DEVICE CtrlChange 18 0
 }
 
 Preset 8 =
 {   
-			SendMidi DEVICE CtrlChange 67 127
+			SendMidi DEVICE CtrlChange 17 127
    		Wait 1
-   		SendMidi DEVICE CtrlChange 64 0
+   		SendMidi DEVICE CtrlChange 14 0
    		Wait 1
-     		SendMidi DEVICE CtrlChange 65 0
+     		SendMidi DEVICE CtrlChange 15 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 66 0
+			SendMidi DEVICE CtrlChange 16 0
    		Wait 1
 
-			SendMidi DEVICE CtrlChange 68 0
+			SendMidi DEVICE CtrlChange 18 0
 }
 
 Preset 9 =
 {   
    		
-			SendMidi DEVICE CtrlChange 68 127
+			SendMidi DEVICE CtrlChange 18 127
    		Wait 1
-   		SendMidi DEVICE CtrlChange 64 0
+   		SendMidi DEVICE CtrlChange 14 0
    		Wait 1
-     		SendMidi DEVICE CtrlChange 65 0
+     		SendMidi DEVICE CtrlChange 15 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 66 0
+			SendMidi DEVICE CtrlChange 16 0
    		Wait 1
-			SendMidi DEVICE CtrlChange 67 0
+			SendMidi DEVICE CtrlChange 17 0
 
 }
 
 Preset 10 =
 {   
-			SendMidi DEVICE CtrlChange 64 127
+			SendMidi DEVICE CtrlChange 14 127
       	Wait 1
-   		SendMidi DEVICE CtrlChange 64 0
+   		SendMidi DEVICE CtrlChange 14 0
 }
 
 Preset 11 =
 {   
-   		SendMidi DEVICE CtrlChange 65 127
+   		SendMidi DEVICE CtrlChange 15 127
          Wait 1
-   		SendMidi DEVICE CtrlChange 65 0
+   		SendMidi DEVICE CtrlChange 15 0
 }
 
 Preset 12 =
 {   
-			SendMidi DEVICE CtrlChange 66 127
+			SendMidi DEVICE CtrlChange 16 127
       	Wait 1
-   		SendMidi DEVICE CtrlChange 66 0
+   		SendMidi DEVICE CtrlChange 16 0
 }
 
 Preset 13 =
 {   
-         SendMidi DEVICE CtrlChange 67 127
+         SendMidi DEVICE CtrlChange 17 127
       	Wait 1
-   		SendMidi DEVICE CtrlChange 67 0
+   		SendMidi DEVICE CtrlChange 17 0
 }
 
 Preset 14 =
 {   
-         SendMidi DEVICE CtrlChange 68 127
+         SendMidi DEVICE CtrlChange 18 127
       	Wait 1
-   		SendMidi DEVICE CtrlChange 68 0
+   		SendMidi DEVICE CtrlChange 18 0
 
 }
 
