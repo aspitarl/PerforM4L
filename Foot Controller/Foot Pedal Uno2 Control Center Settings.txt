@@ -1,0 +1,277 @@
+PRESETS = 
+{
+   0
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+   28
+   29
+}
+
+EFFECTS = 
+{
+   e0
+   e1
+   e2
+   e3
+   e4
+   e5
+   e6
+   e7
+   e8
+   e9
+}
+
+TRIGGERS = 
+{
+}
+
+SWEEPS = 
+{
+   PedalA
+   PedalB
+}
+
+//USE_DIRECT_BANK
+
+BANKS = 
+{
+   bank 1 : 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9
+   bank 2 : 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 
+   bank 3 : 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29  
+   bank 4 : e0 | e1 | e2 | e3 | e4 | 5  | 6  | 7  | 8  | 9
+}
+
+CHANNEL DEVICE = 1
+
+
+INIT_FCB =
+{
+   Pedal 1 = PedalA 
+   Pedal 2 = PedalB 
+}
+
+EFFECT_ON e0 = SendMidi DEVICE CtrlChange 64 127
+EFFECT_OFF e0 = SendMidi DEVICE CtrlChange 64 0
+
+EFFECT_ON e1 = SendMidi DEVICE CtrlChange 65 127
+EFFECT_OFF e1 = SendMidi DEVICE CtrlChange 65 0
+
+EFFECT_ON e2 = SendMidi DEVICE CtrlChange 66 127
+EFFECT_OFF e2 = SendMidi DEVICE CtrlChange 66 0
+
+EFFECT_ON e3 = SendMidi DEVICE CtrlChange 67 127
+EFFECT_OFF e3 = SendMidi DEVICE CtrlChange 67 0
+
+EFFECT_ON e4 = SendMidi DEVICE CtrlChange 68 127
+EFFECT_OFF e4 = SendMidi DEVICE CtrlChange 68 0
+
+Preset 0 =
+{   
+			SendMidi DEVICE CtrlChange 64 127
+}
+
+Preset 1 =
+{   
+   		SendMidi DEVICE CtrlChange 65 127
+}
+
+Preset 2 =
+{   
+			SendMidi DEVICE CtrlChange 66 127
+}
+
+Preset 3 =
+{   
+         SendMidi DEVICE CtrlChange 67 127
+}
+
+Preset 4 =
+{   
+         SendMidi DEVICE CtrlChange 68 127
+
+}
+
+Preset 5 =
+{   
+         SendMidi DEVICE CtrlChange 64 127
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 65 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 66 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 67 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 68 0
+}
+
+Preset 6 =
+{   
+     		SendMidi DEVICE CtrlChange 65 127
+   		Wait 1   		
+         SendMidi DEVICE CtrlChange 64 0
+   		Wait 1
+
+			SendMidi DEVICE CtrlChange 66 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 67 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 68 0
+}
+
+Preset 7 =
+{
+			SendMidi DEVICE CtrlChange 66 127
+   		Wait 1
+         SendMidi DEVICE CtrlChange 64 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 65 0
+   		Wait 1
+
+			SendMidi DEVICE CtrlChange 67 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 68 0
+}
+
+Preset 8 =
+{   
+			SendMidi DEVICE CtrlChange 67 127
+   		Wait 1
+   		SendMidi DEVICE CtrlChange 64 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 65 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 66 0
+   		Wait 1
+
+			SendMidi DEVICE CtrlChange 68 0
+}
+
+Preset 9 =
+{   
+   		
+			SendMidi DEVICE CtrlChange 68 127
+   		Wait 1
+   		SendMidi DEVICE CtrlChange 64 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 65 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 66 0
+   		Wait 1
+			SendMidi DEVICE CtrlChange 67 0
+
+}
+
+Preset 10 =
+{   
+			SendMidi DEVICE CtrlChange 64 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 64 0
+}
+
+Preset 11 =
+{   
+   		SendMidi DEVICE CtrlChange 65 127
+         Wait 1
+   		SendMidi DEVICE CtrlChange 65 0
+}
+
+Preset 12 =
+{   
+			SendMidi DEVICE CtrlChange 66 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 66 0
+}
+
+Preset 13 =
+{   
+         SendMidi DEVICE CtrlChange 67 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 67 0
+}
+
+Preset 14 =
+{   
+         SendMidi DEVICE CtrlChange 68 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 68 0
+
+}
+
+Preset 20 =
+{   
+			SendMidi DEVICE ProgChange 0
+}
+
+Preset 21 =
+{   
+   		SendMidi DEVICE ProgChange 1
+}
+
+Preset 22 =
+{   
+			SendMidi DEVICE ProgChange 2
+}
+Preset 23 =
+{   
+			SendMidi DEVICE ProgChange 3
+}
+Preset 24 =
+{   
+			SendMidi DEVICE ProgChange 4
+}
+Preset 25 =
+{   
+			SendMidi DEVICE ProgChange 5
+}
+Preset 26 =
+{   
+			SendMidi DEVICE ProgChange 6
+}
+Preset 27 =
+{   
+			SendMidi DEVICE ProgChange 7
+}
+Preset 28 =
+{   
+			SendMidi DEVICE ProgChange 8
+}
+Preset 29 =
+{   
+			SendMidi DEVICE ProgChange 9
+}
+
+SWEEP PedalA = SendMidi DEVICE CtrlChange 29 0-127
+SWEEP PedalB = SendMidi DEVICE CtrlChange 30 0-127
+
+
+
+
+
+
+
+
