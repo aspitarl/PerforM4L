@@ -8,6 +8,8 @@ PRESETS =
    p_115_simple
    p_116_simple
    p_117_simple
+   p_118_simple
+   p_119_simple
    p_110_kill
    p_111_kill
    p_112_kill
@@ -16,6 +18,8 @@ PRESETS =
    p_115_kill
    p_116_kill
    p_117_kill
+   p_118_kill
+   p_119_kill
    p_110_pulse
    p_111_pulse
    p_112_pulse
@@ -24,6 +28,24 @@ PRESETS =
    p_115_pulse
    p_116_pulse
    p_117_pulse
+   p_118_pulse
+   p_119_pulse
+
+   p_14_simple
+   p_15_simple
+   p_16_simple
+   p_17_simple
+   p_18_simple
+   p_14_kill
+   p_15_kill
+   p_16_kill
+   p_17_kill
+   p_18_kill
+   p_14_pulse
+   p_15_pulse
+   p_16_pulse
+   p_17_pulse
+   p_18_pulse
 }
 
 EFFECTS = 
@@ -36,6 +58,12 @@ EFFECTS =
    e_115_toggle
    e_116_toggle
    e_117_toggle
+
+   e_14_toggle
+   e_15_toggle
+   e_16_toggle
+   e_17_toggle  
+   e_18_toggle 
 }
 
 TRIGGERS = 
@@ -52,7 +80,8 @@ SWEEPS =
 
 BANKS = 
 {
-   bank 1 : p_110_simple | p_111_simple | p_112_simple | e_116_toggle | e_117_toggle | e_113_toggle | p_114_simple | p_115_simple | p_116_kill | p_117_kill
+   bank 1 : p_110_simple | p_111_simple | p_112_simple | p_113_simple | p_114_simple | p_115_pulse | e_116_toggle | p_117_simple | p_118_simple | p_119_simple
+   bank 2 : e_14_toggle | e_15_toggle | e_16_toggle | e_17_toggle | e_18_toggle | p_14_kill | p_15_kill | p_16_kill | p_17_kill | p_18_kill
 }
 
 CHANNEL DEVICE = 1
@@ -89,6 +118,23 @@ EFFECT_OFF e_116_toggle = SendMidi DEVICE CtrlChange 116 0
 
 EFFECT_ON e_117_toggle = SendMidi DEVICE CtrlChange 117 127
 EFFECT_OFF e_117_toggle = SendMidi DEVICE CtrlChange 117 0
+
+// 14-18
+
+EFFECT_ON e_14_toggle = SendMidi DEVICE CtrlChange 14  127
+EFFECT_OFF e_14_toggle = SendMidi DEVICE CtrlChange 14  0
+
+EFFECT_ON e_15_toggle = SendMidi DEVICE CtrlChange 15 127
+EFFECT_OFF e_15_toggle = SendMidi DEVICE CtrlChange 15 0
+
+EFFECT_ON e_16_toggle = SendMidi DEVICE CtrlChange 16 127
+EFFECT_OFF e_16_toggle = SendMidi DEVICE CtrlChange 16 0
+
+EFFECT_ON e_17_toggle = SendMidi DEVICE CtrlChange 17 127
+EFFECT_OFF e_17_toggle = SendMidi DEVICE CtrlChange 17 0
+
+EFFECT_ON e_18_toggle = SendMidi DEVICE CtrlChange 18 127
+EFFECT_OFF e_18_toggle = SendMidi DEVICE CtrlChange 18 0
 
 // Simple, just send the cc value
 
@@ -136,21 +182,120 @@ Preset  p_117_simple =
 
 }
 
+Preset  p_118_simple =
+{   
+         SendMidi DEVICE CtrlChange 118 127
+
+}
+
+Preset  p_119_simple =
+{   
+         SendMidi DEVICE CtrlChange 119 127
+
+}
+
+
+
+// 14-18
+
+
+Preset  p_14_simple =
+{   
+         SendMidi DEVICE CtrlChange 14  127
+
+}
+
+Preset  p_15_simple =
+{   
+         SendMidi DEVICE CtrlChange 15 127
+
+}
+
+Preset  p_16_simple =
+{   
+         SendMidi DEVICE CtrlChange 16 127
+
+}
+
+Preset  p_17_simple =
+{   
+         SendMidi DEVICE CtrlChange 17 127
+
+}
+
+Preset  p_18_simple =
+{   
+         SendMidi DEVICE CtrlChange 18 127
+
+}
+
+
 // Kill other controls (e.g. arm only one)
 // TODO: only using 116 and 117 for now. 
 
-Preset p_116_kill  =
+Preset p_14_kill  =
 {   
-         SendMidi DEVICE CtrlChange 116 127
+         SendMidi DEVICE CtrlChange 14 127
    		Wait 1
-     		SendMidi DEVICE CtrlChange 117 0
+     		SendMidi DEVICE CtrlChange 15 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 16 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 17 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 18 0
 }
 
-Preset p_117_kill  =
+Preset p_15_kill  =
 {   
-     		SendMidi DEVICE CtrlChange 117 127
-   		Wait 1   		
-         SendMidi DEVICE CtrlChange 116 0
+         SendMidi DEVICE CtrlChange 15 127
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 14 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 16 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 17 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 18 0
+}
+
+Preset p_16_kill  =
+{   
+         SendMidi DEVICE CtrlChange 16 127
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 15 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 14 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 17 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 18 0
+}
+
+Preset p_17_kill  =
+{   
+         SendMidi DEVICE CtrlChange 17 127
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 15 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 16 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 14 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 18 0
+}
+
+Preset p_18_kill  =
+{   
+         SendMidi DEVICE CtrlChange 18 127
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 15 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 16 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 17 0
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 14 0
 }
 
 // Pulse the CC value
@@ -215,6 +360,50 @@ Preset p_117_pulse =
    		SendMidi DEVICE CtrlChange 117 0
 
 }
+
+
+// 14-18
+
+
+Preset p_14_pulse =
+{   
+         SendMidi DEVICE CtrlChange 14  127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 14  0
+
+}
+Preset p_15_pulse =
+{   
+         SendMidi DEVICE CtrlChange 15 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 15 0
+
+}
+
+Preset p_16_pulse =
+{   
+         SendMidi DEVICE CtrlChange 16 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 16 0
+
+}
+
+Preset p_17_pulse =
+{   
+         SendMidi DEVICE CtrlChange 17 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 17 0
+
+}
+
+Preset p_18_pulse =
+{   
+         SendMidi DEVICE CtrlChange 18 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 18 0
+
+}
+
 
 SWEEP PedalA = SendMidi DEVICE CtrlChange 29 0-127
 SWEEP PedalB = SendMidi DEVICE CtrlChange 30 0-127
