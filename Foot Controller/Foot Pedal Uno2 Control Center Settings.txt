@@ -1,0 +1,228 @@
+PRESETS = 
+{
+   p_110_simple
+   p_111_simple
+   p_112_simple
+   p_113_simple
+   p_114_simple
+   p_115_simple
+   p_116_simple
+   p_117_simple
+   p_110_kill
+   p_111_kill
+   p_112_kill
+   p_113_kill
+   p_114_kill
+   p_115_kill
+   p_116_kill
+   p_117_kill
+   p_110_pulse
+   p_111_pulse
+   p_112_pulse
+   p_113_pulse
+   p_114_pulse
+   p_115_pulse
+   p_116_pulse
+   p_117_pulse
+}
+
+EFFECTS = 
+{
+   e_110_toggle
+   e_111_toggle
+   e_112_toggle
+   e_113_toggle
+   e_114_toggle
+   e_115_toggle
+   e_116_toggle
+   e_117_toggle
+}
+
+TRIGGERS = 
+{
+}
+
+SWEEPS = 
+{
+   PedalA
+   PedalB
+}
+
+//USE_DIRECT_BANK
+
+BANKS = 
+{
+   bank 1 : p_110_simple | p_111_simple | p_112_simple | e_116_toggle | e_117_toggle | e_113_toggle | p_114_simple | p_115_simple | p_116_kill | p_117_kill
+}
+
+CHANNEL DEVICE = 1
+
+
+INIT_FCB =
+{
+   Pedal 1 = PedalA 
+   Pedal 2 = PedalB 
+}
+
+// Toggle 
+
+EFFECT_ON e_110_toggle  = SendMidi DEVICE CtrlChange 110 127
+EFFECT_OFF e_110_toggle = SendMidi DEVICE CtrlChange 110 0
+
+EFFECT_ON e_111_toggle = SendMidi DEVICE CtrlChange 111 127
+EFFECT_OFF e_111_toggle = SendMidi DEVICE CtrlChange 111 0
+
+EFFECT_ON e_112_toggle = SendMidi DEVICE CtrlChange 112 127
+EFFECT_OFF e_112_toggle = SendMidi DEVICE CtrlChange 112 0
+
+EFFECT_ON e_113_toggle = SendMidi DEVICE CtrlChange 113 127
+EFFECT_OFF e_113_toggle = SendMidi DEVICE CtrlChange 113 0
+
+EFFECT_ON e_114_toggle = SendMidi DEVICE CtrlChange 114  127
+EFFECT_OFF e_114_toggle = SendMidi DEVICE CtrlChange 114  0
+
+EFFECT_ON e_115_toggle = SendMidi DEVICE CtrlChange 115 127
+EFFECT_OFF e_115_toggle = SendMidi DEVICE CtrlChange 115 0
+
+EFFECT_ON e_116_toggle = SendMidi DEVICE CtrlChange 116 127
+EFFECT_OFF e_116_toggle = SendMidi DEVICE CtrlChange 116 0
+
+EFFECT_ON e_117_toggle = SendMidi DEVICE CtrlChange 117 127
+EFFECT_OFF e_117_toggle = SendMidi DEVICE CtrlChange 117 0
+
+// Simple, just send the cc value
+
+Preset p_110_simple  =
+{   
+			SendMidi DEVICE CtrlChange 110 127
+}
+
+Preset  p_111_simple =
+{   
+   		SendMidi DEVICE CtrlChange 111 127
+}
+
+Preset  p_112_simple =
+{   
+			SendMidi DEVICE CtrlChange 112 127
+}
+
+Preset  p_113_simple =
+{   
+         SendMidi DEVICE CtrlChange 113 127
+}
+
+Preset  p_114_simple =
+{   
+         SendMidi DEVICE CtrlChange 114  127
+
+}
+
+Preset  p_115_simple =
+{   
+         SendMidi DEVICE CtrlChange 115 127
+
+}
+
+Preset  p_116_simple =
+{   
+         SendMidi DEVICE CtrlChange 116 127
+
+}
+
+Preset  p_117_simple =
+{   
+         SendMidi DEVICE CtrlChange 117 127
+
+}
+
+// Kill other controls (e.g. arm only one)
+// TODO: only using 116 and 117 for now. 
+
+Preset p_116_kill  =
+{   
+         SendMidi DEVICE CtrlChange 116 127
+   		Wait 1
+     		SendMidi DEVICE CtrlChange 117 0
+}
+
+Preset p_117_kill  =
+{   
+     		SendMidi DEVICE CtrlChange 117 127
+   		Wait 1   		
+         SendMidi DEVICE CtrlChange 116 0
+}
+
+// Pulse the CC value
+
+Preset p_110_pulse  =
+{   
+			SendMidi DEVICE CtrlChange 110 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 110 0
+}
+
+
+
+Preset p_111_pulse =
+{   
+   		SendMidi DEVICE CtrlChange 111 127
+         Wait 1
+   		SendMidi DEVICE CtrlChange 111 0
+}
+
+Preset p_112_pulse =
+{   
+			SendMidi DEVICE CtrlChange 112 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 112 0
+}
+
+Preset p_113_pulse =
+{   
+         SendMidi DEVICE CtrlChange 113 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 113 0
+}
+
+Preset p_114_pulse =
+{   
+         SendMidi DEVICE CtrlChange 114  127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 114  0
+
+}
+Preset p_115_pulse =
+{   
+         SendMidi DEVICE CtrlChange 115 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 115 0
+
+}
+
+Preset p_116_pulse =
+{   
+         SendMidi DEVICE CtrlChange 116 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 116 0
+
+}
+
+Preset p_117_pulse =
+{   
+         SendMidi DEVICE CtrlChange 117 127
+      	Wait 1
+   		SendMidi DEVICE CtrlChange 117 0
+
+}
+
+SWEEP PedalA = SendMidi DEVICE CtrlChange 29 0-127
+SWEEP PedalB = SendMidi DEVICE CtrlChange 30 0-127
+
+
+
+
+
+
+
+
