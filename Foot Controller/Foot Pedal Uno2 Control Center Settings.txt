@@ -82,6 +82,7 @@ BANKS =
 {
    bank 1 : p_110_simple | p_111_simple | p_112_simple | p_113_simple | p_114_simple | p_115_pulse | e_116_toggle | p_117_simple | p_118_simple | p_119_simple
    bank 2 : e_14_toggle | e_15_toggle | e_16_toggle | e_17_toggle | e_18_toggle | p_14_kill | p_15_kill | p_16_kill | p_17_kill | p_18_kill
+   bank 3 : p_14_simple | p_15_simple | p_16_simple | p_17_simple | p_18_simple | p_14_pulse | p_15_pulse | p_16_pulse | p_17_pulse | p_18_pulse | 
 }
 
 CHANNEL DEVICE = 1
